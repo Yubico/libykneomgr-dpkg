@@ -1,0 +1,52 @@
+Source: libykneomgr
+Section: utils
+Priority: extra
+Maintainer: Yubico Open Source Maintainers <ossmaint@yubico.com>
+Build-Depends: debhelper (>= 8.0.0), autotools-dev, libpcsclite-dev, libzip-dev
+Standards-Version: 3.9.4
+Homepage: http://opensource.yubico.com/libykneomgr/
+Vcs-Git: git://github.com/Yubico/libykneomgr.git
+Vcs-Browser: https://github.com/Yubico/libykneomgr
+
+Package: libykneomgr0
+Architecture: any
+Section: libs
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Yubico YubiKey NEO Manager library
+ This is a C library to interact with the YubiKey NEO.  There is a
+ command line tool "ykneomgr" for interactive use.  It supports
+ querying the YubiKey NEO for firmware version, operation mode
+ (OTP/CCID) and serial number.  You may also mode switch the device and
+ manage applets (list, delete and install).
+
+Package: libykneomgr-dev
+Architecture: any
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}, libykneomgr0 (= ${binary:Version})
+Description: Yubico YubiKey NEO Manager library
+ This is a C library to interact with the YubiKey NEO.  There is a
+ command line tool "ykneomgr" for interactive use.  It supports
+ querying the YubiKey NEO for firmware version, operation mode
+ (OTP/CCID) and serial number.  You may also mode switch the device and
+ manage applets (list, delete and install).
+
+Package: libykneomgr-doc
+Architecture: all
+Section: doc
+Description: Yubico YubiKey NEO Manager library documentation
+ This is a C library to interact with the YubiKey NEO.  There is a
+ command line tool "ykneomgr" for interactive use.  It supports
+ querying the YubiKey NEO for firmware version, operation mode
+ (OTP/CCID) and serial number.  You may also mode switch the device and
+ manage applets (list, delete and install).
+
+Package: ykneomgr
+Architecture: any
+Section: utils
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Yubico YubiKey NEO Manager tool
+ This is a C library to interact with the YubiKey NEO.  There is a
+ command line tool "ykneomgr" for interactive use.  It supports
+ querying the YubiKey NEO for firmware version, operation mode
+ (OTP/CCID) and serial number.  You may also mode switch the device and
+ manage applets (list, delete and install).
