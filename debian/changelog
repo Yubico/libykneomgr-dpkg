@@ -1,5 +1,5 @@
 libykneomgr (0.0.2-1) unstable; urgency=low
 
-  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+  * Initial release.
 
  -- Klas Lindfors <klas@yubico.com>  Thu, 06 Mar 2014 16:06:06 +0100
