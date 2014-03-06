@@ -1,0 +1,301 @@
+2014-03-06  Klas Lindfors <klas@yubico.com>
+
+	* NEWS: news for 0.0.2
+
+2014-03-06  Simon Josefsson <simon@josefsson.org>
+
+	* cfg.mk: Almost fix release rule problem.
+
+2014-03-06  Klas Lindfors <klas@yubico.com>
+
+	* README, configure.ac: change to pcsc as default backend.
+
+2014-03-06  Simon Josefsson <simon@josefsson.org>
+
+	* README: Update README.
+
+2014-03-06  Simon Josefsson <simon@josefsson.org>
+
+	* GNUmakefile, Makefile.am, build-aux/useless-if-before-free,
+	build-aux/vc-list-files, cfg.mk, gl/Makefile.am,
+	gl/m4/gnulib-cache.m4, gl/m4/gnulib-comp.m4, maint.mk: Use gnulib
+	maintainer-makefile.
+
+2014-03-06  Klas Lindfors <klas@yubico.com>
+
+	* lib/version.c: drop GNU_SOURCE define
+
+2014-03-06  Klas Lindfors <klas@yubico.com>
+
+	* : commit b9a599957ca8fb2d29bae4770fa25fca59f843e5 Author: Klas
+	Lindfors <klas@yubico.com> Date:   Thu Mar 6 13:04:17 2014 +0100
+
+2014-03-06  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c: update iv after mac
+
+2014-03-06  Simon Josefsson <simon@josefsson.org>
+
+	* .gitignore, configure.ac, gl/Makefile.am, gl/m4/gnulib-cache.m4,
+	gl/m4/gnulib-comp.m4, lib/Makefile.am, lib/internal.h,
+	src/Makefile.am, src/ykneomgr.c: Make it build.  Use gnulib libtool
+	rules.
+
+2014-03-06  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c, lib/internal.h: refactor and break out macing
+	into it's own function also save away the derived keys for later use
+
+2014-03-06  Simon Josefsson <simon@josefsson.org>
+
+	* build-aux/config.rpath, build-aux/snippet/arg-nonnull.h,
+	build-aux/snippet/c++defs.h, build-aux/snippet/warn-on-use.h,
+	gl/Makefile.am, gl/alloca.in.h, gl/asnprintf.c, gl/dummy.c,
+	gl/errno.in.h, gl/float+.h, gl/float.c, gl/float.in.h, gl/fpucw.h,
+	gl/frexp.c, gl/frexpl.c, gl/fseterr.c, gl/fseterr.h, gl/isnan.c,
+	gl/isnand-nolibm.h, gl/isnand.c, gl/isnanf-nolibm.h, gl/isnanf.c,
+	gl/isnanl-nolibm.h, gl/isnanl.c, gl/itold.c, gl/m4/00gnulib.m4,
+	gl/m4/absolute-header.m4, gl/m4/alloca.m4, gl/m4/asm-underscore.m4,
+	gl/m4/errno_h.m4, gl/m4/exponentd.m4, gl/m4/exponentf.m4,
+	gl/m4/exponentl.m4, gl/m4/extensions.m4, gl/m4/extern-inline.m4,
+	gl/m4/float_h.m4, gl/m4/fpieee.m4, gl/m4/frexp.m4, gl/m4/frexpl.m4,
+	gl/m4/fseterr.m4, gl/m4/gnulib-cache.m4, gl/m4/gnulib-common.m4,
+	gl/m4/gnulib-comp.m4, gl/m4/gnulib-tool.m4, gl/m4/include_next.m4,
+	gl/m4/intmax_t.m4, gl/m4/inttypes_h.m4, gl/m4/isnand.m4,
+	gl/m4/isnanf.m4, gl/m4/isnanl.m4, gl/m4/ld-version-script.m4,
+	gl/m4/ldexpl.m4, gl/m4/lib-ld.m4, gl/m4/lib-link.m4,
+	gl/m4/lib-prefix.m4, gl/m4/longlong.m4, gl/m4/manywarnings.m4,
+	gl/m4/math_h.m4, gl/m4/memchr.m4, gl/m4/mmap-anon.m4,
+	gl/m4/multiarch.m4, gl/m4/nocrash.m4, gl/m4/off_t.m4,
+	gl/m4/onceonly.m4, gl/m4/printf-frexp.m4, gl/m4/printf-frexpl.m4,
+	gl/m4/printf-posix-rpl.m4, gl/m4/printf.m4, gl/m4/signbit.m4,
+	gl/m4/size_max.m4, gl/m4/ssize_t.m4, gl/m4/stddef_h.m4,
+	gl/m4/stdint.m4, gl/m4/stdint_h.m4, gl/m4/stdio_h.m4,
+	gl/m4/string_h.m4, gl/m4/sys_types_h.m4, gl/m4/vasnprintf.m4,
+	gl/m4/vfprintf-posix.m4, gl/m4/warn-on-use.m4, gl/m4/warnings.m4,
+	gl/m4/wchar_h.m4, gl/m4/wchar_t.m4, gl/m4/wint_t.m4,
+	gl/m4/xsize.m4, gl/math.c, gl/math.in.h, gl/memchr.c,
+	gl/memchr.valgrind, gl/printf-args.c, gl/printf-args.h,
+	gl/printf-frexp.c, gl/printf-frexp.h, gl/printf-frexpl.c,
+	gl/printf-frexpl.h, gl/printf-parse.c, gl/printf-parse.h,
+	gl/printf.c, gl/signbitd.c, gl/signbitf.c, gl/signbitl.c,
+	gl/size_max.h, gl/stddef.in.h, gl/stdint.in.h, gl/stdio-impl.h,
+	gl/stdio.in.h, gl/string.in.h, gl/sys_types.in.h, gl/vasnprintf.c,
+	gl/vasnprintf.h, gl/verify.h, gl/vfprintf.c, gl/wchar.in.h,
+	gl/xsize.c, gl/xsize.h: Add gnulib printf-posix.
+
+2014-03-06  Simon Josefsson <simon@josefsson.org>
+
+	* BLURB, COPYING, Makefile.am, README, configure.ac,
+	lib/Makefile.am, lib/backend_globalplatform.c, lib/backend_pcsc.c,
+	lib/devs.c, lib/error.c, lib/global.c, lib/internal.h,
+	lib/version.c, lib/ykneomgr.map, lib/ykneomgr.pc.in,
+	lib/ykneomgr/Makefile.am, lib/ykneomgr/ykneomgr-types.h,
+	lib/ykneomgr/ykneomgr-version.h.in, lib/ykneomgr/ykneomgr.h,
+	macosx.mk, src/Makefile.am, src/cmdline.ggo, src/ykneomgr.c,
+	src/ykneomgr.h2m, tests/Makefile.am, tests/basic.c, windows.mk: 
+	Relicense to LGPLv3+ to be able to use gnulib printf-posix.
+
+2014-03-06  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c: fix error ifs, || vs &&
+
+2014-03-05  Klas Lindfors <klas@yubico.com>
+
+	* macosx.mk, windows.mk: don't install libzip binaries on win and
+	mac
+
+2014-03-05  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c: rework counting in the list applet code so we
+	return an accurate length
+
+2014-03-05  Klas Lindfors <klas@yubico.com>
+
+	* windows.mk: check for libzip doesn't work on windows
+
+2014-03-05  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c: close zip before exiting on error
+
+2014-03-05  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c: check that memory allocation works
+
+2014-03-05  Klas Lindfors <klas@yubico.com>
+
+	* lib/internal.h, macosx.mk: build on mac
+
+2014-03-05  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c: check return on all calls to backend_apdu()
+
+2014-03-05  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c: reindent according to make indent
+
+2014-03-05  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c: don't load Descriptor.cap
+
+2014-03-05  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c: actually return error on error and check
+	success correctly
+
+2014-03-05  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c: implement delete applet for pcsc
+
+2014-03-05  Klas Lindfors <klas@yubico.com>
+
+	* windows.mk: update windows building with libzip
+
+2014-03-05  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c: basic structure for an install applet function
+
+2014-03-05  Klas Lindfors <klas@yubico.com>
+
+	* configure.ac, lib/Makefile.am: add dependency on libzip
+
+2014-03-05  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c: fix signedness and let des_encrypt_cbc()
+	return a value
+
+2014-03-05  Klas Lindfors <klas@yubico.com>
+
+	* .gitignore: ignore des artifacts
+
+2014-03-05  Klas Lindfors <klas@yubico.com>
+
+	* lib/des.c: make local functions static
+
+2014-03-03  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c, lib/des.c, lib/des.h: make indent
+
+2014-03-03  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c: simplistic list_applet function for pcsc
+	backend
+
+2014-03-03  Klas Lindfors <klas@yubico.com>
+
+	* lib/des.c, lib/des.h: drop const on key schedule to get rid of
+	warnings
+
+2014-03-03  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c: implement authenticate for pcsc backend
+
+2014-03-03  Klas Lindfors <klas@yubico.com>
+
+	* lib/Makefile.am, lib/des.c, lib/des.h: add public domain des
+	implementation from https://github.com/B-Con/crypto-algorithms
+
+2013-12-09  Simon Josefsson <simon@josefsson.org>
+
+	* : Merge pull request #5 from mmonaco/master build: depend ykneomgr.1 on binary
+
+2013-11-12  Simon Josefsson <simon@josefsson.org>
+
+	* .gitignore: Ignore more.
+
+2013-11-12  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS, configure.ac: Bump versions.
+
+2013-11-12  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS: Version 0.0.1.
+
+2013-11-12  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS: Add.
+
+2013-11-06  Simon Josefsson <simon@josefsson.org>
+
+	* lib/devs.c: Don't do inline declarations.
+
+2013-11-06  Simon Josefsson <simon@josefsson.org>
+
+	* windows.mk: Don't ship pkg-config in Windows binaries.  Make sure
+	ZIP file is cleanly built.
+
+2013-11-06  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS, lib/devs.c: libykneomgr_discover: Return error message when
+	no devices are present.
+
+2013-11-05  Simon Josefsson <simon@josefsson.org>
+
+	* README: Doc fix.
+
+2013-11-05  Simon Josefsson <simon@josefsson.org>
+
+	* .gitignore, Makefile.am, macosx.mk: Add macosx.mk.
+
+2013-11-05  Simon Josefsson <simon@josefsson.org>
+
+	* lib/backend_pcsc.c: Don't use nonportable pcsc_stringify_error.
+
+2013-11-05  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS: Doc fix.
+
+2013-11-05  Simon Josefsson <simon@josefsson.org>
+
+	* gl/Makefile.am, gl/m4/gnulib-cache.m4, gl/m4/gnulib-comp.m4,
+	gl/m4/lib-ld.m4, gl/m4/lib-link.m4, gl/m4/lib-prefix.m4: Add havelib
+	gnulib module.
+
+2013-11-05  Simon Josefsson <simon@josefsson.org>
+
+	* configure.ac: Auto-select backend by default.
+
+2013-11-05  Simon Josefsson <simon@josefsson.org>
+
+	* lib/backend_pcsc.c: Debug more for PCSC backend.
+
+2013-11-05  Simon Josefsson <simon@josefsson.org>
+
+	* configure.ac, lib/Makefile.am, lib/internal.h: Fix linking on Mac.
+
+2013-10-29  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS: Doc fix.
+
+2013-10-29  Simon Josefsson <simon@josefsson.org>
+
+	* lib/devs.c: Fix last commit.
+
+2013-10-25  Simon Josefsson <simon@josefsson.org>
+
+	* lib/devs.c: Handle NEOs without serial number.
+
+2013-10-23  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS, configure.ac: Bump version.
+
+2013-10-23  Simon Josefsson <simon@josefsson.org>
+
+	* .gitignore: Fix ignores.
+
+2013-10-23  Simon Josefsson <simon@josefsson.org>
+
+	* BLURB: Fix.
+
+2013-10-23  Simon Josefsson <simon@josefsson.org>
+
+	* BLURB: Add.
+
+2013-10-23  Simon Josefsson <simon@josefsson.org>
+
+	* windows.mk: Fix upload rule.
+
+2013-10-23  Simon Josefsson <simon@josefsson.org>
+
+	* Initial commit.
+

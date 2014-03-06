@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ykneomgr-version</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Yubico YubiKey NEO Manager C Library">
+<link rel="up" href="intro.html" title="Yubico YubiKey NEO Manager C Library">
+<link rel="prev" href="libykneomgr-ykneomgr-types.html" title="ykneomgr-types">
+<link rel="next" href="api-index-full.html" title="API Index">
+<meta name="generator" content="GTK-Doc V1.19 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libykneomgr-ykneomgr-types.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="intro.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Yubico YubiKey NEO Manager C Library</th>
+<td><a accesskey="n" href="api-index-full.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#libykneomgr-ykneomgr-version.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#libykneomgr-ykneomgr-version.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libykneomgr-ykneomgr-version"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libykneomgr-ykneomgr-version.top_of_page"></a>ykneomgr-version</span></h2>
+<p>ykneomgr-version</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libykneomgr-ykneomgr-version.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="libykneomgr-ykneomgr-version.html#YKNEOMGR-VERSION-STRING:CAPS" title="YKNEOMGR_VERSION_STRING">YKNEOMGR_VERSION_STRING</a>
+#define             <a class="link" href="libykneomgr-ykneomgr-version.html#YKNEOMGR-VERSION-NUMBER:CAPS" title="YKNEOMGR_VERSION_NUMBER">YKNEOMGR_VERSION_NUMBER</a>
+#define             <a class="link" href="libykneomgr-ykneomgr-version.html#YKNEOMGR-VERSION-MAJOR:CAPS" title="YKNEOMGR_VERSION_MAJOR">YKNEOMGR_VERSION_MAJOR</a>
+#define             <a class="link" href="libykneomgr-ykneomgr-version.html#YKNEOMGR-VERSION-MINOR:CAPS" title="YKNEOMGR_VERSION_MINOR">YKNEOMGR_VERSION_MINOR</a>
+#define             <a class="link" href="libykneomgr-ykneomgr-version.html#YKNEOMGR-VERSION-PATCH:CAPS" title="YKNEOMGR_VERSION_PATCH">YKNEOMGR_VERSION_PATCH</a>
+const <span class="returnvalue">char</span> *        <a class="link" href="libykneomgr-ykneomgr-version.html#ykneomgr-check-version" title="ykneomgr_check_version ()">ykneomgr_check_version</a>              (<em class="parameter"><code>const <span class="type">char</span> *req_version</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libykneomgr-ykneomgr-version.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libykneomgr-ykneomgr-version.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="YKNEOMGR-VERSION-STRING:CAPS"></a><h3>YKNEOMGR_VERSION_STRING</h3>
+<pre class="programlisting">#define YKNEOMGR_VERSION_STRING "0.0.2"
+</pre>
+<p>
+Pre-processor symbol with a string that describe the header file
+version number.  Used together with <a class="link" href="libykneomgr-ykneomgr-version.html#ykneomgr-check-version" title="ykneomgr_check_version ()"><code class="function">ykneomgr_check_version()</code></a> to verify
+header file and run-time library consistency.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="YKNEOMGR-VERSION-NUMBER:CAPS"></a><h3>YKNEOMGR_VERSION_NUMBER</h3>
+<pre class="programlisting">#define YKNEOMGR_VERSION_NUMBER 0x000002
+</pre>
+<p>
+Pre-processor symbol with a hexadecimal value describing the header
+file version number.  For example, when the header version is 1.2.3
+this symbol will have the value 0x01020300.  The last two digits
+are only used between public releases, and will otherwise be 00.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="YKNEOMGR-VERSION-MAJOR:CAPS"></a><h3>YKNEOMGR_VERSION_MAJOR</h3>
+<pre class="programlisting">#define YKNEOMGR_VERSION_MAJOR 0
+</pre>
+<p>
+Pre-processor symbol with a decimal value that describe the major
+level of the header file version number.  For example, when the
+header version is 1.2.3 this symbol will be 1.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="YKNEOMGR-VERSION-MINOR:CAPS"></a><h3>YKNEOMGR_VERSION_MINOR</h3>
+<pre class="programlisting">#define YKNEOMGR_VERSION_MINOR 0
+</pre>
+<p>
+Pre-processor symbol with a decimal value that describe the minor
+level of the header file version number.  For example, when the
+header version is 1.2.3 this symbol will be 2.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="YKNEOMGR-VERSION-PATCH:CAPS"></a><h3>YKNEOMGR_VERSION_PATCH</h3>
+<pre class="programlisting">#define YKNEOMGR_VERSION_PATCH 2
+</pre>
+<p>
+Pre-processor symbol with a decimal value that describe the patch
+level of the header file version number.  For example, when the
+header version is 1.2.3 this symbol will be 3.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ykneomgr-check-version"></a><h3>ykneomgr_check_version ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        ykneomgr_check_version              (<em class="parameter"><code>const <span class="type">char</span> *req_version</code></em>);</pre>
+<p>
+Check that the version of the library is at minimum the requested
+one and return the version string; return NULL if the condition is
+not satisfied.  If a NULL is passed to this function, no check is
+done, but the version string is simply returned.
+</p>
+<p>
+See <a class="link" href="libykneomgr-ykneomgr-version.html#YKNEOMGR-VERSION-STRING:CAPS" title="YKNEOMGR_VERSION_STRING"><code class="literal">YKNEOMGR_VERSION_STRING</code></a> for a suitable <em class="parameter"><code>req_version</code></em> string.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>req_version</code></em> :</span></p></td>
+<td>Required version number, or NULL.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Version string of run-time library, or NULL if the
+run-time library does not meet the required version number.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.19</div>
+</body>
+</html>

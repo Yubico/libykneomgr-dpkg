@@ -1,0 +1,66 @@
+<!-- ##### SECTION Title ##### -->
+ykneomgr-version
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO YKNEOMGR_VERSION_STRING ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO YKNEOMGR_VERSION_NUMBER ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO YKNEOMGR_VERSION_MAJOR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO YKNEOMGR_VERSION_MINOR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO YKNEOMGR_VERSION_PATCH ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION ykneomgr_check_version ##### -->
+<para>
+
+</para>
+
+@req_version: 
+@Returns: 
+
+
