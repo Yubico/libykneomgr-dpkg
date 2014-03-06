@@ -23,6 +23,7 @@ Package: libykneomgr-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends}, ${misc:Depends}, libykneomgr0 (= ${binary:Version})
+Suggests: libykneomgr-doc
 Description: Yubico YubiKey NEO Manager library
  This is a C library to interact with the YubiKey NEO.  There is a
  command line tool "ykneomgr" for interactive use.  It supports
@@ -33,6 +34,7 @@ Description: Yubico YubiKey NEO Manager library
 Package: libykneomgr-doc
 Architecture: all
 Section: doc
+Depends: ${misc:Depends}
 Description: Yubico YubiKey NEO Manager library documentation
  This is a C library to interact with the YubiKey NEO.  There is a
  command line tool "ykneomgr" for interactive use.  It supports
