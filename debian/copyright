@@ -36,6 +36,7 @@ License: LGPL-3+
 
 Files: lib/des.*
 Copyright: Brad Conte (brad AT radconte.com)
+License: public-domain
  This code is presented "as is" without any guarantees.
  .
  This code is released into the public domain free of any restrictions.
