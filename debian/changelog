@@ -2,4 +2,4 @@ libykneomgr (0.0.2-1) unstable; urgency=low
 
   * Initial release.
 
- -- Klas Lindfors <klas@yubico.com>  Thu, 06 Mar 2014 16:06:06 +0100
+ -- Simon Josefsson <simon@josefsson.org>  Thu, 06 Mar 2014 16:06:06 +0100

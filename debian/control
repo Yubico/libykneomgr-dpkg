@@ -2,9 +2,11 @@ Source: libykneomgr
 Section: utils
 Priority: extra
 Maintainer: Yubico Open Source Maintainers <ossmaint@yubico.com>
-Build-Depends: debhelper (>= 8.0.0), autotools-dev, libpcsclite-dev, libzip-dev,
-                             help2man, pkg-config
-Standards-Version: 3.9.4
+Uploaders: Simon Josefsson <simon@josefsson.org>
+Build-Depends: debhelper (>= 9), autotools-dev, dh-autoreconf,
+	       libpcsclite-dev, libzip-dev, help2man, pkg-config,
+	       gtk-doc-tools
+Standards-Version: 3.9.5
 Homepage: http://opensource.yubico.com/libykneomgr/
 Vcs-Git: git://github.com/Yubico/libykneomgr.git
 Vcs-Browser: https://github.com/Yubico/libykneomgr
@@ -19,33 +21,27 @@ Description: Yubico YubiKey NEO Manager library
  querying the YubiKey NEO for firmware version, operation mode
  (OTP/CCID) and serial number.  You may also mode switch the device and
  manage applets (list, delete and install).
+ .
+ This package contains the shared library, and is normally pulled in
+ automatically by any package that needs it.
 
 Package: libykneomgr-dev
 Architecture: any
 Section: libdevel
 Depends: ${shlibs:Depends}, ${misc:Depends}, libykneomgr0 (= ${binary:Version})
 Suggests: libykneomgr-doc
-Description: Yubico YubiKey NEO Manager library
+Description: Yubico YubiKey NEO Manager library development files
  This is a C library to interact with the YubiKey NEO.  There is a
  command line tool "ykneomgr" for interactive use.  It supports
  querying the YubiKey NEO for firmware version, operation mode
  (OTP/CCID) and serial number.  You may also mode switch the device and
  manage applets (list, delete and install).
-
-Package: libykneomgr-doc
-Architecture: all
-Section: doc
-Depends: ${misc:Depends}
-Description: Yubico YubiKey NEO Manager library documentation
- This is a C library to interact with the YubiKey NEO.  There is a
- command line tool "ykneomgr" for interactive use.  It supports
- querying the YubiKey NEO for firmware version, operation mode
- (OTP/CCID) and serial number.  You may also mode switch the device and
- manage applets (list, delete and install).
+ .
+ This package contains files that are useful if you are developing
+ something that uses the library.
 
 Package: ykneomgr
 Architecture: any
-Section: utils
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Yubico YubiKey NEO Manager tool
  This is a C library to interact with the YubiKey NEO.  There is a
@@ -53,3 +49,5 @@ Description: Yubico YubiKey NEO Manager tool
  querying the YubiKey NEO for firmware version, operation mode
  (OTP/CCID) and serial number.  You may also mode switch the device and
  manage applets (list, delete and install).
+ .
+ This package contains the command line tool.

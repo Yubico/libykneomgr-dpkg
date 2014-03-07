@@ -1,9 +1,24 @@
-libykneomgr for Debian
-----------------------
+We describe here one way to work with the package sources.
 
-<this file describes information about the source package, see Debian policy
-manual section 4.14. You WILL either need to modify or delete this file>
+Initialize cowbuilder:
 
+sudo cowbuilder --create --distribution sid --mirror http://http.debian.net/debian --debootstrapopts "--keyring=/usr/share/keyrings/debian-archive-keyring.gpg" --basepath /var/cache/pbuilder/base-debian-sid.cow
 
+Optionally update cowbuilder:
 
+sudo cowbuilder --update --basepath /var/cache/pbuilder/base-debian-sid.cow
 
+Clone the repository:
+
+git clone git://gitorious.org/libykneomgr-dpkg/libykneomgr-dpkg.git
+
+Build the package:
+
+git-buildpackage --git-pristine-tar --git-builder="pdebuild --auto-debsign --pbuilder cowbuilder -- --twice --basepath /var/cache/pbuilder/base-debian-sid.cow"
+
+If all goes well, you should have newly built packages in
+/var/cache/pbuilder/result/.
+
+Update the package to a new upstream release (don't forget debian/changelog):
+
+git-import-orig --pristine-tar /path/to/new-release.tar.gz

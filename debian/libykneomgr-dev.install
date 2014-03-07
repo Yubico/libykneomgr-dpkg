@@ -1,4 +1,5 @@
-usr/lib/libykneomgr.so
-usr/lib/libykneomgr.a
-usr/lib/pkgconfig
 usr/include/ykneomgr
+usr/lib/*/libykneomgr.a
+usr/lib/*/libykneomgr.so
+usr/lib/*/pkgconfig
+usr/share/gtk-doc
