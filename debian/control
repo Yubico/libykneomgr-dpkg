@@ -2,7 +2,8 @@ Source: libykneomgr
 Section: utils
 Priority: extra
 Maintainer: Yubico Open Source Maintainers <ossmaint@yubico.com>
-Build-Depends: debhelper (>= 8.0.0), autotools-dev, libpcsclite-dev, libzip-dev, help2man
+Build-Depends: debhelper (>= 8.0.0), autotools-dev, libpcsclite-dev, libzip-dev,
+                             help2man, pkg-config
 Standards-Version: 3.9.4
 Homepage: http://opensource.yubico.com/libykneomgr/
 Vcs-Git: git://github.com/Yubico/libykneomgr.git
