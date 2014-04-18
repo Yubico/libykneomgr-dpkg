@@ -1,3 +1,91 @@
+2013-11-12  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS: Version 0.0.1.
+
+2013-11-12  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS: Add.
+
+2013-11-06  Simon Josefsson <simon@josefsson.org>
+
+	* lib/devs.c: Don't do inline declarations.
+
+2013-11-06  Simon Josefsson <simon@josefsson.org>
+
+	* windows.mk: Don't ship pkg-config in Windows binaries.  Make sure
+	ZIP file is cleanly built.
+
+2013-11-06  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS, lib/devs.c: libykneomgr_discover: Return error message when
+	no devices are present.
+
+2013-11-05  Simon Josefsson <simon@josefsson.org>
+
+	* README: Doc fix.
+
+2013-11-05  Simon Josefsson <simon@josefsson.org>
+
+	* .gitignore, Makefile.am, macosx.mk: Add macosx.mk.
+
+2013-11-05  Simon Josefsson <simon@josefsson.org>
+
+	* lib/backend_pcsc.c: Don't use nonportable pcsc_stringify_error.
+
+2013-11-05  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS: Doc fix.
+
+2013-11-05  Simon Josefsson <simon@josefsson.org>
+
+	* gl/Makefile.am, gl/m4/gnulib-cache.m4, gl/m4/gnulib-comp.m4,
+	gl/m4/lib-ld.m4, gl/m4/lib-link.m4, gl/m4/lib-prefix.m4: Add havelib
+	gnulib module.
+
+2013-11-05  Simon Josefsson <simon@josefsson.org>
+
+	* configure.ac: Auto-select backend by default.
+
+2013-11-05  Simon Josefsson <simon@josefsson.org>
+
+	* lib/backend_pcsc.c: Debug more for PCSC backend.
+
+2013-11-05  Simon Josefsson <simon@josefsson.org>
+
+	* configure.ac, lib/Makefile.am, lib/internal.h: Fix linking on Mac.
+
+2013-10-29  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS: Doc fix.
+
+2013-10-29  Simon Josefsson <simon@josefsson.org>
+
+	* lib/devs.c: Fix last commit.
+
+2013-10-25  Simon Josefsson <simon@josefsson.org>
+
+	* lib/devs.c: Handle NEOs without serial number.
+
+2013-10-23  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS, configure.ac: Bump version.
+
+2013-10-23  Simon Josefsson <simon@josefsson.org>
+
+	* .gitignore: Fix ignores.
+
+2013-10-23  Simon Josefsson <simon@josefsson.org>
+
+	* BLURB: Fix.
+
+2013-10-23  Simon Josefsson <simon@josefsson.org>
+
+	* BLURB: Add.
+
+2013-10-23  Simon Josefsson <simon@josefsson.org>
+
+	* windows.mk: Fix upload rule.
+
 2013-10-23  Simon Josefsson <simon@josefsson.org>
 
 	* Initial commit.
