@@ -16,7 +16,7 @@ https://www.yubico.com/
 License
 -------
 
-The project is licensed under the LGPLv3+ license.  See the file
+The project is licensed under the LGPLv2+ license.  See the file
 COPYING for exact wording.  For any copyright year range specified as
 YYYY-ZZZZ in this package note that the range specifies every single
 year in that closed interval.
@@ -33,20 +33,22 @@ follows.
 
 The backend to use is decided at compile time, see the summary at the
 end of the ./configure output.  Use --with-backend=foo to chose
-backend, replacing foo with the backend you want to use.  The default
-and recommended backend is "pcsc" which will be selected if
-present.  The backends "pcsc", "macscard", and "winscard" uses
-the PCSC interface, with slightly different shared library linkage and
-header file names: "pcsc" is used under GNU-like systems, "macscard"
-under Mac OS X, and "winscard" is used under Windows.  In most
-situations, running ./configure should automatically find the proper
-backend to use.
-There is also a backend "globalplatform" available that will use
-libglobalplatform to perform operations.
+backend.  The recommended backend is "globalplatform" which will be
+selected if present.  The other two backends "pcsc" and "winscard"
+uses the PCSC interface, with slightly different shared library
+linkage: "pcsc" is used under GNU-like systems, and "winscard" is used
+under Windows.
 
-To force building using the globaleplatform interface, you would use:
+Warning!  Currently the "pcsc" and "winscard" backends have no support
+for listing and deleting applets.  Invoking these functions will
+result in an error.  Hopefully this limitation will be removed, when
+someone add an implementation of the Global Platform Security Protocol
+(version 2 mode 55) using native PCSC.
 
-  ./configure --with-backend=globalplatform
+To force building using the PCSC interface even though GlobalPlatform
+is availble, you would use:
+
+  ./configure --with-backend=pcsc
 
 Usage
 -----
@@ -72,23 +74,26 @@ This will create a directory 'libykneomgr'.  Enter the directory:
   cd libykneomgr
 
 Recent versions of autoconf, automake and libtool must be installed.
-Libzip is required by the library.  Help2man is used to generate the
-manpages.  GTK-DOC is used to generated API documentation.  Gengetopt
-is needed for command line parameter handling.
+Help2man is used to generate the manpages.  Gengetopt is needed for
+command line parameter handling.
 
-Build the project using:
+Generate the build system using:
 
-  make
+  autoreconf --install
 
-See cfg.mk for some settings.
+Then you follow the normal build instructions, see above.
+
+For developers, it is recommended to build with GTK-DOC enabled (so
+that "make dist" works) and to enable GCC warnings.
+
+  ./configure --enable-gtk-doc  --enable-gtk-doc-pdf --enable-gcc-warnings
 
 Portability
 -----------
 
-The main development platform is Debian GNU/Linux.  The project is
-cross-compiled to Windows using MinGW (see windows.mk) using the PCSC
-backend.  It may also be built for Mac OS X (see macosx.mk), also
-using the PCSC backend.
+The main development platform is Debian GNU/Linux and it should be
+well supported.  It has also been cross-compiled to Windows using
+MinGW (see windows.mk) using the PCSC backend.
 
 Namespaces
 ----------
@@ -96,7 +101,7 @@ Namespaces
 Project full name: Yubico YubiKey NEO Manager C Library
 Project short name: libykneomgr
 Header files: $prefix/include/ykneomgr/*
-Library files: $prefix/lib/libykneomgr*
+Library files: $prefix/lib/libykneomgr.*
 Library symbol prefix: ykneomgr_
 Command line tool: ykneomgr
 Pkg-config: ykneomgr
