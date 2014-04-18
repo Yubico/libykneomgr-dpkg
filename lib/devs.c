@@ -1,15 +1,15 @@
 /*
- * Copyright (C) 2013-2014 Yubico AB
+ * Copyright (C) 2013 Yubico AB
  *
- * This program is free software: you can redistribute it and/or modify
+ * This library is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
- * published by the Free Software Foundation, either version 3 of the
+ * published by the Free Software Foundation; either version 2.1 of the
  * License, or (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
+ * This library is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
@@ -88,13 +88,14 @@ ykneomgr_rc
 ykneomgr_connect (ykneomgr_dev * dev, const char *name)
 {
   int rc;
-  uint8_t recvAPDU[258];
-  size_t recvAPDULen = 258;
-  uint8_t buf[] = "\x00\xA4\x04\x00\x08\xA0\x00\x00\x05\x27\x20\x01\x01";
 
   rc = backend_connect (dev, name);
   if (rc != YKNEOMGR_OK)
     return rc;
+
+  uint8_t recvAPDU[258];
+  size_t recvAPDULen = 258;
+  uint8_t buf[] = "\x00\xA4\x04\x00\x08\xA0\x00\x00\x05\x27\x20\x01\x01";
 
   rc = backend_apdu (dev, buf, sizeof buf - 1, recvAPDU, &recvAPDULen);
   if (rc != YKNEOMGR_OK)
@@ -134,23 +135,17 @@ ykneomgr_connect (ykneomgr_dev * dev, const char *name)
   if (rc != YKNEOMGR_OK)
     return rc;
 
-  if (!((recvAPDULen == 2 && recvAPDU[0] == 0x90 && recvAPDU[1] == 0x00)
-	|| (recvAPDULen == 6 && recvAPDU[4] == 0x90 && recvAPDU[5] == 0x00)))
+  if (recvAPDULen != 6 && recvAPDU[5] != 0x90 && recvAPDU[6] != 0x00)
     {
-      if (debug)
-	{
-	  size_t i;
-	  printf ("apdu %zd: ", recvAPDULen);
-	  for (i = 0; i < recvAPDULen; i++)
-	    printf ("%02x ", recvAPDU[i]);
-	  printf ("\n");
-	}
-
+      size_t i;
+      printf ("apdu %zd: ", recvAPDULen);
+      for (i = 0; i < recvAPDULen; i++)
+	printf ("%02x ", recvAPDU[i]);
+      printf ("\t");
       return YKNEOMGR_BACKEND_ERROR;
     }
 
-  if (recvAPDULen == 6)
-    dev->serialno = GETU32 (recvAPDU);
+  dev->serialno = GETU32 (recvAPDU);
 
   if (debug)
     {
@@ -224,9 +219,6 @@ ykneomgr_discover (ykneomgr_dev * dev)
       k++;
       j += strlen (buf + j) + 1;
     }
-
-  if (k == 0)
-    return YKNEOMGR_NO_DEVICE;
 
 done:
   free (buf);

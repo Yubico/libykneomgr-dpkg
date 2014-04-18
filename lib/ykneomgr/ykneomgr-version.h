@@ -1,15 +1,15 @@
 /*
- * Copyright (C) 2013-2014 Yubico AB
+ * Copyright (C) 2013 Yubico AB
  *
- * This program is free software: you can redistribute it and/or modify
+ * This library is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
- * published by the Free Software Foundation, either version 3 of the
+ * published by the Free Software Foundation; either version 2.1 of the
  * License, or (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
+ * This library is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
@@ -30,7 +30,7 @@ extern "C"
  * version number.  Used together with ykneomgr_check_version() to verify
  * header file and run-time library consistency.
  */
-#define YKNEOMGR_VERSION_STRING "0.0.2"
+#define YKNEOMGR_VERSION_STRING "0.0.0"
 
 /**
  * YKNEOMGR_VERSION_NUMBER
@@ -40,7 +40,7 @@ extern "C"
  * this symbol will have the value 0x01020300.  The last two digits
  * are only used between public releases, and will otherwise be 00.
  */
-#define YKNEOMGR_VERSION_NUMBER 0x000002
+#define YKNEOMGR_VERSION_NUMBER 0x000000
 
 /**
  * YKNEOMGR_VERSION_MAJOR
@@ -67,7 +67,7 @@ extern "C"
  * level of the header file version number.  For example, when the
  * header version is 1.2.3 this symbol will be 3.
  */
-#define YKNEOMGR_VERSION_PATCH 2
+#define YKNEOMGR_VERSION_PATCH 0
 
   const char *ykneomgr_check_version (const char *req_version);
 

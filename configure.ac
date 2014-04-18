@@ -1,26 +1,25 @@
-# Copyright (C) 2013-2014 Yubico AB
+# Copyright (C) 2013 Yubico AB
 #
-# This program is free software: you can redistribute it and/or modify
+# This library is free software; you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as
-# published by the Free Software Foundation, either version 3 of the
+# published by the Free Software Foundation; either version 2.1 of the
 # License, or (at your option) any later version.
 #
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Lesser General Public License for more details.
+# This library is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-AC_INIT([libykneomgr], [0.0.2], [yubico-devel@googlegroups.com])
+AC_INIT([libykneomgr], [0.0.0], [yubico-devel@googlegroups.com])
 AC_CONFIG_MACRO_DIR([m4])
-AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 
 # http://www.gnu.org/s/libtool/manual/html_node/Updating-version-info.html
 AC_SUBST([LT_CURRENT], 0)
-AC_SUBST([LT_REVISION], 2)
+AC_SUBST([LT_REVISION], 0)
 AC_SUBST([LT_AGE], 0)
 
 AM_INIT_AUTOMAKE([-Wall -Werror])
@@ -36,79 +35,38 @@ AM_MISSING_PROG([HELP2MAN], help2man, $missing_dir)
 
 AC_ARG_WITH([backend],
   [AS_HELP_STRING([--with-backend=ARG],
-    [use specific backend/linkage; 'pcsc', 'macscard', 'winscard', or 'globalplatform'])],
+    [use specific backend; 'pcsc', 'winscard' or 'globalplatform'])],
     [],
     [with_backend=check])
 
-case "$with_backend$host" in
-  check*-darwin*)
-    AC_MSG_NOTICE([Detected Mac: selecting macscard backend])
-    AC_MSG_NOTICE([use --with-backend to override])
-    with_backend=macscard ;;
-  check*-mingw*)
-    AC_MSG_NOTICE([Detected Windows: selecting winscard backend])
-    AC_MSG_NOTICE([use --with-backend to override])
-    with_backend=winscard ;;
-esac
-
-if test "x$with_backend" = xcheck || test "x$with_backend" = xpcsc; then
-  PKG_CHECK_MODULES([PCSC], [libpcsclite],
-                    [with_backend=pcsc], [:])
-fi
-
-if test "x$with_backend" = xcheck \
-   || test "x$with_backend" = xglobalplatform; then
-  PKG_CHECK_MODULES([GLOBALPLATFORM], [globalplatform],
-                    [with_backend=globalplatform], [:])
-fi
-
 if test "x$with_backend" = xcheck; then
-  AC_CHECK_HEADERS([PCSC/winscard.h])
-  AC_MSG_CHECKING([between Mac/Windows winscard])
-  if test "x$ac_cv_header_PCSC_winscard_h" = xyes; then
-    with_backend=macscard
-    AC_MSG_RESULT([Mac])
-  else
-    with_backend=winscard
-    AC_MSG_RESULT([Windows])
-  fi
+   AC_MSG_CHECKING([for backend (guessing)])
+   case "$host" in
+    *-mingw*) with_backend=winscard ;;
+    *) PKG_CHECK_EXISTS([globalplatform],
+                        [with_backend=globalplatform],
+                        [with_backend=pcsc]) ;;
+   esac
+   AC_MSG_RESULT([$with_backend])
 fi
 
-if test "x$with_backend" = xwinscard; then
-  AC_MSG_NOTICE([checking for winscard with Windows linkage])
-  AC_LIB_HAVE_LINKFLAGS(winscard,, [#include <winscard.h>],
-                        [SCardBeginTransaction(0)])
-  if test "x$ac_cv_libwinscard" != xyes; then
-    AC_MSG_ERROR([cannot find Windows winscard library/headers])
-  fi
-fi
-
-if test "x$with_backend" = xmacscard; then
-  AC_MSG_NOTICE([checking for PCSC with Mac linkage])
-  AC_CHECK_HEADERS([PCSC/winscard.h])
-  PCSC_MACOSX_LIBS="-Wl,-framework -Wl,PCSC"
-  save_LIBS="$LIBS"
-  LIBS="$LIBS $PCSC_MACOSX_LIBS"
-  AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <PCSC/wintypes.h>
-				    #include <PCSC/winscard.h>]],
-				  [[SCardBeginTransaction(0)]])],
-                 [AC_SUBST([PCSC_MACOSX_LIBS])],
-                 [AC_MSG_ERROR([cannot find Mac PCSC library/headers])])
-  LIBS="$save_LIBS"
-fi
-
-if test "x$with_backend" = xglobalplatform; then
+if test "x$with_backend" = "xglobalplatform"; then
+  PKG_CHECK_MODULES([GLOBALPLATFORM], [globalplatform])
   AC_DEFINE([BACKEND_GLOBALPLATFORM], 1,
             [Define to 1 if you the GLOBALPLATFORM backend.])
-elif test "x$with_backend" = xpcsc || test "x$with_backend" = xwinscard \
-  || test "x$with_backend" = xmacscard; then
+elif test "x$with_backend" = "xpcsc"; then
+  PKG_CHECK_MODULES([PCSC], [libpcsclite])
+  AC_DEFINE([BACKEND_PCSC], 1, [Define to 1 if you the PCSC backend.])
+elif test "x$with_backend" = "xwinscard"; then
+  AC_LIB_HAVE_LINKFLAGS(winscard,, [#include <winscard.h>],
+                        [SCardBeginTransaction(NULL)])
   AC_DEFINE([BACKEND_PCSC], 1, [Define to 1 if you the PCSC backend.])
 else
-  AC_MSG_ERROR([cannot find PCSC/winscard library/headers])
+  AC_MSG_ERROR([unknown backend: $with_backend])
 fi
-
 AM_CONDITIONAL([BACKEND_GLOBALPLATFORM], test x$with_backend = xglobalplatform)
-AM_CONDITIONAL([BACKEND_PCSC], test x$with_backend != xglobalplatform)
+AM_CONDITIONAL([BACKEND_PCSC], test x$with_backend = xpcsc)
+AM_CONDITIONAL([BACKEND_WINSCARD], test x$with_backend = xwinscard)
 
 gl_INIT
 
@@ -122,8 +80,6 @@ AC_ARG_ENABLE([gcc-warnings],
    gl_gcc_warnings=$enableval],
   [gl_gcc_warnings=no]
 )
-
-PKG_CHECK_MODULES(LIBZIP, libzip)
 
 if test "$gl_gcc_warnings" = yes; then
   nw="$nw -Wsystem-headers"          # Ignore system headers
@@ -188,10 +144,4 @@ AC_MSG_NOTICE([summary of build options:
             LIBS:   ${PCSC_LIBS}
   Winscard
             LIBS:   ${LTLIBWINSCARD}
-  Mac PCSC
-            LIBS:   ${PCSC_MACOSX_LIBS}
-  libzip
-          CFLAGS:   ${LIBZIP_CFLAGS}
-            LIBS:   ${LIBZIP_LIBS}
-
 ])

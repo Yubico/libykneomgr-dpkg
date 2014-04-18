@@ -9,16 +9,31 @@ ykneomgr-types
 
 </para>
 
+
 <!-- ##### SECTION See_Also ##### -->
 <para>
 
 </para>
+
 
 <!-- ##### SECTION Stability_Level ##### -->
 
 
 <!-- ##### SECTION Image ##### -->
 
+
+<!-- ##### TYPEDEF ykneomgr_dev ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ENUM ykneomgr_initflags ##### -->
+<para>
+
+</para>
+
+@YKNEOMGR_DEBUG: 
 
 <!-- ##### ENUM ykneomgr_rc ##### -->
 <para>
@@ -30,17 +45,4 @@ ykneomgr-types
 @YKNEOMGR_NO_DEVICE: 
 @YKNEOMGR_TOO_MANY_DEVICES: 
 @YKNEOMGR_BACKEND_ERROR: 
-
-<!-- ##### ENUM ykneomgr_initflags ##### -->
-<para>
-
-</para>
-
-@YKNEOMGR_DEBUG: 
-
-<!-- ##### TYPEDEF ykneomgr_dev ##### -->
-<para>
-
-</para>
-
 
