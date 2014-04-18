@@ -1,5 +1,25 @@
 2014-03-25  Klas Lindfors <klas@yubico.com>
 
+	* NEWS: NEWS for 0.1.2
+
+2014-03-25  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c: fix for re-auth, reset icv
+
+2014-03-25  Klas Lindfors <klas@yubico.com>
+
+	* README: fix typo
+
+2014-03-25  Klas Lindfors <klas@yubico.com>
+
+	* NEWS, configure.ac: bump versions
+
+2014-03-25  Klas Lindfors <klas@yubico.com>
+
+	* NEWS: NEWS for version 0.1.1
+
+2014-03-25  Klas Lindfors <klas@yubico.com>
+
 	* src/ykneomgr.c: fixup so other commands then send_apdu can be used
 
 2014-03-25  Klas Lindfors <klas@yubico.com>
