@@ -9,12 +9,10 @@ ykneomgr
 
 </para>
 
-
 <!-- ##### SECTION See_Also ##### -->
 <para>
 
 </para>
-
 
 <!-- ##### SECTION Stability_Level ##### -->
 
@@ -22,59 +20,42 @@ ykneomgr
 <!-- ##### SECTION Image ##### -->
 
 
-<!-- ##### FUNCTION ykneomgr_applet_delete ##### -->
+<!-- ##### FUNCTION ykneomgr_global_init ##### -->
 <para>
 
 </para>
 
-@dev: 
-@aid: 
-@aidlen: 
+@flags: 
 @Returns: 
 
 
-<!-- ##### FUNCTION ykneomgr_applet_install ##### -->
+<!-- ##### FUNCTION ykneomgr_global_done ##### -->
 <para>
 
 </para>
 
-@dev: 
-@capfile: 
-@Returns: 
+@void: 
 
 
-<!-- ##### FUNCTION ykneomgr_applet_list ##### -->
+<!-- ##### FUNCTION ykneomgr_strerror ##### -->
 <para>
 
 </para>
 
-@dev: 
-@appletstr: 
-@len: 
+@err: 
 @Returns: 
 
 
-<!-- ##### FUNCTION ykneomgr_authenticate ##### -->
+<!-- ##### FUNCTION ykneomgr_strerror_name ##### -->
 <para>
 
 </para>
 
-@dev: 
-@key: 
+@err: 
 @Returns: 
 
 
-<!-- ##### FUNCTION ykneomgr_connect ##### -->
-<para>
-
-</para>
-
-@dev: 
-@name: 
-@Returns: 
-
-
-<!-- ##### FUNCTION ykneomgr_discover ##### -->
+<!-- ##### FUNCTION ykneomgr_init ##### -->
 <para>
 
 </para>
@@ -91,25 +72,28 @@ ykneomgr
 @dev: 
 
 
-<!-- ##### FUNCTION ykneomgr_get_mode ##### -->
+<!-- ##### FUNCTION ykneomgr_list_devices ##### -->
 <para>
 
 </para>
 
 @dev: 
+@devicestr: 
+@len: 
 @Returns: 
 
 
-<!-- ##### FUNCTION ykneomgr_get_serialno ##### -->
+<!-- ##### FUNCTION ykneomgr_connect ##### -->
 <para>
 
 </para>
 
 @dev: 
+@name: 
 @Returns: 
 
 
-<!-- ##### FUNCTION ykneomgr_get_version_build ##### -->
+<!-- ##### FUNCTION ykneomgr_discover ##### -->
 <para>
 
 </para>
@@ -136,24 +120,7 @@ ykneomgr
 @Returns: 
 
 
-<!-- ##### FUNCTION ykneomgr_global_done ##### -->
-<para>
-
-</para>
-
-@void: 
-
-
-<!-- ##### FUNCTION ykneomgr_global_init ##### -->
-<para>
-
-</para>
-
-@flags: 
-@Returns: 
-
-
-<!-- ##### FUNCTION ykneomgr_init ##### -->
+<!-- ##### FUNCTION ykneomgr_get_version_build ##### -->
 <para>
 
 </para>
@@ -162,14 +129,21 @@ ykneomgr
 @Returns: 
 
 
-<!-- ##### FUNCTION ykneomgr_list_devices ##### -->
+<!-- ##### FUNCTION ykneomgr_get_mode ##### -->
 <para>
 
 </para>
 
 @dev: 
-@devicestr: 
-@len: 
+@Returns: 
+
+
+<!-- ##### FUNCTION ykneomgr_get_serialno ##### -->
+<para>
+
+</para>
+
+@dev: 
 @Returns: 
 
 
@@ -183,21 +157,45 @@ ykneomgr
 @Returns: 
 
 
-<!-- ##### FUNCTION ykneomgr_strerror ##### -->
+<!-- ##### FUNCTION ykneomgr_authenticate ##### -->
 <para>
 
 </para>
 
-@err: 
+@dev: 
+@key: 
 @Returns: 
 
 
-<!-- ##### FUNCTION ykneomgr_strerror_name ##### -->
+<!-- ##### FUNCTION ykneomgr_applet_list ##### -->
 <para>
 
 </para>
 
-@err: 
+@dev: 
+@appletstr: 
+@len: 
+@Returns: 
+
+
+<!-- ##### FUNCTION ykneomgr_applet_delete ##### -->
+<para>
+
+</para>
+
+@dev: 
+@aid: 
+@aidlen: 
+@Returns: 
+
+
+<!-- ##### FUNCTION ykneomgr_applet_install ##### -->
+<para>
+
+</para>
+
+@dev: 
+@capfile: 
 @Returns: 
 
 

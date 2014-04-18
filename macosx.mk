@@ -1,19 +1,20 @@
-# Copyright (C) 2013 Yubico AB
+# Copyright (C) 2013-2014 Yubico AB
 #
-# This library is free software; you can redistribute it and/or modify
+# This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as
-# published by the Free Software Foundation; either version 2.1 of the
+# published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
 #
-# This library is distributed in the hope that it will be useful, but
-# WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-# Lesser General Public License for more details.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 PACKAGE=libykneomgr
+LIBZIP_VERSION=0.11.2
 
 all: usage doit
 
@@ -30,12 +31,23 @@ usage:
 doit:
 	rm -rf tmp && mkdir tmp && cd tmp && \
 	mkdir -p root/licenses && \
+	cp ../libzip-$(LIBZIP_VERSION).tar.gz . || \
+	wget "http://www.nih.at/libzip/libzip-$(LIBZIP_VERSION).tar.gz" && \
+	tar xfz libzip-$(LIBZIP_VERSION).tar.gz && \
+	cd libzip-$(LIBZIP_VERSION) && \
+	./configure --prefix=$(PWD)/tmp$(ARCH)/root CFLAGS=-mmacosx-version-min=10.6 && \
+	make install check && \
+	cp LICENSE $(PWD)/tmp/root/licenses/libzip.txt && \
+	cd .. && \
 	cp ../$(PACKAGE)-$(VERSION).tar.gz . || cp ../../$(PACKAGE)-$(VERSION).tar.gz . && \
 	tar xfz $(PACKAGE)-$(VERSION).tar.gz && \
 	cd $(PACKAGE)-$(VERSION)/ && \
-	./configure CFLAGS=-mmacosx-version-min=10.6 --prefix=$(PWD)/tmp/root && \
+	PKG_CONFIG_PATH=$(PWD)/tmp/root/lib/pkgconfig ./configure CFLAGS=-mmacosx-version-min=10.6 --prefix=$(PWD)/tmp/root && \
 	make install check && \
+	rm -f $(PWD)/tmp$(ARCH)/root/bin/zipcmp $(PWD)/tmp$(ARCH)/root/bin/zipmerge $(PWD)/tmp$(ARCH)/root/bin/ziptorrent && \
 	rm -rf $(PWD)/tmp/root/lib/pkgconfig/ && \
+	install_name_tool -id @executable_path/../lib/libzip.2.dylib $(PWD)/tmp/root/lib/libzip.2.dylib && \
+	install_name_tool -change $(PWD)/tmp/root/lib/libzip.2.dylib @executable_path/../lib/libzip.2.dylib $(PWD)/tmp/root/bin/ykneomgr && \
 	install_name_tool -id @executable_path/../lib/libykneomgr.0.dylib $(PWD)/tmp/root/lib/libykneomgr.0.dylib && \
 	install_name_tool -change $(PWD)/tmp/root/lib/libykneomgr.0.dylib @executable_path/../lib/libykneomgr.0.dylib $(PWD)/tmp/root/bin/ykneomgr && \
 	mkdir $(PWD)/tmp/root/doc && \

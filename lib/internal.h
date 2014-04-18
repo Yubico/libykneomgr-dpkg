@@ -1,15 +1,15 @@
 /*
- * Copyright (C) 2013 Yubico AB
+ * Copyright (C) 2013-2014 Yubico AB
  *
- * This library is free software; you can redistribute it and/or modify
+ * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as
- * published by the Free Software Foundation; either version 2.1 of the
+ * published by the Free Software Foundation, either version 3 of the
  * License, or (at your option) any later version.
  *
- * This library is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
  *
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
@@ -17,6 +17,8 @@
 
 #ifndef INTERNAL_H
 #define INTERNAL_H
+
+#include "config.h"
 
 #include <ykneomgr/ykneomgr.h>
 
@@ -29,10 +31,10 @@
 #endif
 #if BACKEND_PCSC
 #if defined HAVE_PCSC_WINSCARD_H
-# include <PCSC/wintypes.h>
-# include <PCSC/winscard.h>
+#include <PCSC/wintypes.h>
+#include <PCSC/winscard.h>
 #else
-# include <winscard.h>
+#include <winscard.h>
 #endif
 #endif
 
@@ -48,6 +50,11 @@ struct ykneomgr_dev
 #if BACKEND_PCSC || BACKEND_WINSCARD
   SCARDCONTEXT card;
   SCARDHANDLE cardHandle;
+  unsigned char macKey[3][16][6];
+  unsigned char encKey[3][16][6];
+  unsigned char icv[8];
+  int mac;
+  int encrypt;
 #endif
   int card_connected;
   uint8_t versionMajor, versionMinor, versionBuild, pgmSeq, mode, crTimeout;
