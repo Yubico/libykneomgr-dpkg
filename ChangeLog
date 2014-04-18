@@ -1,3 +1,54 @@
+2014-03-25  Klas Lindfors <klas@yubico.com>
+
+	* NEWS: NEWS for 0.1.0
+
+2014-03-24  Klas Lindfors <klas@yubico.com>
+
+	* windows.mk: always build with tests
+
+2014-03-24  Klas Lindfors <klas@yubico.com>
+
+	* src/cmdline.ggo, src/ykneomgr.c: add -S to send multiple arbitrary
+	apdus
+
+2014-03-24  Klas Lindfors <klas@yubico.com>
+
+	* NEWS, configure.ac, lib/devs.c, lib/ykneomgr.map,
+	lib/ykneomgr/ykneomgr.h: add ykneomgr_send_apdu() function resolves #7
+
+2014-03-20  Klas Lindfors <klas@yubico.com>
+
+	* macosx.mk, windows.mk: drop the libzip and zlib man pages
+
+2014-03-20  Klas Lindfors <klas@yubico.com>
+
+	* lib/backend_pcsc.c: fix indentation
+
+2014-03-20  Klas Lindfors <klas@yubico.com>
+
+	* .gitignore, gl/des.lo: ignore des artifacts
+
+2014-03-20  Klas Lindfors <klas@yubico.com>
+
+	* : commit b82ee76ba8e9e90cd253791dd4856463397f5a8e Author: Klas
+	Lindfors <klas@yubico.com> Date:   Tue Mar 18 13:05:04 2014 +0100
+
+2014-03-14  Andy Lutomirski <luto@amacapital.net>
+
+	* gl/Makefile.am, gl/des.c, gl/des.h, gl/des.lo,
+	gl/m4/gnulib-cache.m4, gl/m4/gnulib-comp.m4, gl/m4/stdbool.m4,
+	gl/stdbool.in.h, gl/stdint.in.h, gl/sys_types.in.h,
+	lib/Makefile.am, lib/backend_pcsc.c, lib/des.c, lib/des.h,
+	lib/internal.h: Use gnulib's crypto/des instead of B-con's This should resolve some license and bundled library issues.
+
+2014-03-07  Klas Lindfors <klas@yubico.com>
+
+	* macosx.mk: fix the mac binary build forgot to fix the linking of the libykneomgr -> libzip
+
+2014-03-06  Klas Lindfors <klas@yubico.com>
+
+	* NEWS, configure.ac: bump version
+
 2014-03-06  Klas Lindfors <klas@yubico.com>
 
 	* NEWS: news for 0.0.2

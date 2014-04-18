@@ -89,6 +89,14 @@ extern "C"
   2 for HID/CCID composite device.
   81 for CCID-only with touch eject.
   82 for HID/CCID with touch eject. help description.  */
+    char **send_apdu_arg;	/**< @brief Send an arbitrary APDU to the device.  */
+    char **send_apdu_orig;	/**< @brief Send an arbitrary APDU to the device original value given at command line.  */
+    unsigned int send_apdu_min;
+			      /**< @brief Send an arbitrary APDU to the device's minimum occurreces */
+    unsigned int send_apdu_max;
+			      /**< @brief Send an arbitrary APDU to the device's maximum occurreces */
+    const char *send_apdu_help;
+			      /**< @brief Send an arbitrary APDU to the device help description.  */
     int debug_flag;	/**< @brief Print debug information to standard error (default=off).  */
     const char *debug_help;
 			  /**< @brief Print debug information to standard error help description.  */
@@ -103,6 +111,7 @@ extern "C"
     unsigned int applet_delete_given;	/**< @brief Whether applet-delete was given.  */
     unsigned int applet_install_given;	/**< @brief Whether applet-install was given.  */
     unsigned int set_mode_given;/**< @brief Whether set-mode was given.  */
+    unsigned int send_apdu_given;	/**< @brief Whether send-apdu was given.  */
     unsigned int debug_given;	/**< @brief Whether debug was given.  */
 
   };

@@ -45,6 +45,7 @@ doit:
 	lt_cv_deplibs_check_method=pass_all ./configure --host=$(HOST) --build=x86_64-unknown-linux-gnu --prefix=$(PWD)/tmp$(ARCH)/root --with-zlib=$(PWD)/tmp$(ARCH)/root && \
 	make install && \
 	rm -f $(PWD)/tmp$(ARCH)/root/bin/zipcmp.exe $(PWD)/tmp$(ARCH)/root/bin/zipmerge.exe $(PWD)/tmp$(ARCH)/root/bin/ziptorrent.exe && \
+	rm -rf $(PWD)/tmp$(ARCH)/root/share/ && \
 	cp LICENSE $(PWD)/tmp$(ARCH)/root/licenses/libzip.txt && \
 	cd .. && \
 	cp ../$(PACKAGE)-$(VERSION).tar.gz . && \
@@ -67,7 +68,7 @@ doit:
 	$(MAKE) -f windows.mk doit ARCH=32 HOST=i686-w64-mingw32 CHECK=check
 
 64bit:
-	$(MAKE) -f windows.mk doit ARCH=64 HOST=x86_64-w64-mingw32
+	$(MAKE) -f windows.mk doit ARCH=64 HOST=x86_64-w64-mingw32 CHECK=check
 
 upload:
 	@if test ! -d "$(YUBICO_GITHUB_REPO)"; then \
