@@ -1,5 +1,17 @@
 2014-03-25  Klas Lindfors <klas@yubico.com>
 
+	* src/ykneomgr.c: fixup so other commands then send_apdu can be used
+
+2014-03-25  Klas Lindfors <klas@yubico.com>
+
+	* macosx.mk: wait with deleting stuff in macosx.mk
+
+2014-03-25  Klas Lindfors <klas@yubico.com>
+
+	* NEWS, configure.ac: bump versions
+
+2014-03-25  Klas Lindfors <klas@yubico.com>
+
 	* NEWS: NEWS for 0.1.0
 
 2014-03-24  Klas Lindfors <klas@yubico.com>
