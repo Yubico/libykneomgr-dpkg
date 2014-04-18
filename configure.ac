@@ -1,25 +1,26 @@
-# Copyright (C) 2013 Yubico AB
+# Copyright (C) 2013-2014 Yubico AB
 #
-# This library is free software; you can redistribute it and/or modify
+# This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as
-# published by the Free Software Foundation; either version 2.1 of the
+# published by the Free Software Foundation, either version 3 of the
 # License, or (at your option) any later version.
 #
-# This library is distributed in the hope that it will be useful, but
-# WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-# Lesser General Public License for more details.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-AC_INIT([libykneomgr], [0.0.1], [yubico-devel@googlegroups.com])
+AC_INIT([libykneomgr], [0.0.2], [yubico-devel@googlegroups.com])
 AC_CONFIG_MACRO_DIR([m4])
+AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 
 # http://www.gnu.org/s/libtool/manual/html_node/Updating-version-info.html
 AC_SUBST([LT_CURRENT], 0)
-AC_SUBST([LT_REVISION], 1)
+AC_SUBST([LT_REVISION], 2)
 AC_SUBST([LT_AGE], 0)
 
 AM_INIT_AUTOMAKE([-Wall -Werror])
@@ -50,15 +51,15 @@ case "$with_backend$host" in
     with_backend=winscard ;;
 esac
 
+if test "x$with_backend" = xcheck || test "x$with_backend" = xpcsc; then
+  PKG_CHECK_MODULES([PCSC], [libpcsclite],
+                    [with_backend=pcsc], [:])
+fi
+
 if test "x$with_backend" = xcheck \
    || test "x$with_backend" = xglobalplatform; then
   PKG_CHECK_MODULES([GLOBALPLATFORM], [globalplatform],
                     [with_backend=globalplatform], [:])
-fi
-
-if test "x$with_backend" = xcheck || test "x$with_backend" = xpcsc; then
-  PKG_CHECK_MODULES([PCSC], [libpcsclite],
-                    [with_backend=pcsc], [:])
 fi
 
 if test "x$with_backend" = xcheck; then
@@ -121,6 +122,8 @@ AC_ARG_ENABLE([gcc-warnings],
    gl_gcc_warnings=$enableval],
   [gl_gcc_warnings=no]
 )
+
+PKG_CHECK_MODULES(LIBZIP, libzip)
 
 if test "$gl_gcc_warnings" = yes; then
   nw="$nw -Wsystem-headers"          # Ignore system headers
@@ -187,5 +190,8 @@ AC_MSG_NOTICE([summary of build options:
             LIBS:   ${LTLIBWINSCARD}
   Mac PCSC
             LIBS:   ${PCSC_MACOSX_LIBS}
+  libzip
+          CFLAGS:   ${LIBZIP_CFLAGS}
+            LIBS:   ${LIBZIP_LIBS}
 
 ])
