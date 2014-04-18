@@ -1,5 +1,5 @@
-libykneomgr (0.0.2-1) unstable; urgency=low
+libykneomgr (0.1.2-1) unstable; urgency=low
 
   * Initial release.
 
- -- Simon Josefsson <simon@josefsson.org>  Thu, 06 Mar 2014 16:06:06 +0100
+ -- Simon Josefsson <simon@josefsson.org>  Fri, 18 Apr 2014 12:42:25 +0200
