@@ -745,6 +745,9 @@
 /* Define if you have the 'wint_t' type. */
 #undef HAVE_WINT_T
 
+/* Define to 1 if the system has the type `_Bool'. */
+#undef HAVE__BOOL
+
 /* Define to 1 if you have the '__fseterr' function. */
 #undef HAVE___FSETERR
 

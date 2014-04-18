@@ -123,9 +123,9 @@ am__aclocal_m4_deps = $(top_srcdir)/gl/m4/00gnulib.m4 \
 	$(top_srcdir)/gl/m4/printf-posix-rpl.m4 \
 	$(top_srcdir)/gl/m4/printf.m4 $(top_srcdir)/gl/m4/signbit.m4 \
 	$(top_srcdir)/gl/m4/size_max.m4 $(top_srcdir)/gl/m4/ssize_t.m4 \
-	$(top_srcdir)/gl/m4/stddef_h.m4 $(top_srcdir)/gl/m4/stdint.m4 \
-	$(top_srcdir)/gl/m4/stdint_h.m4 $(top_srcdir)/gl/m4/stdio_h.m4 \
-	$(top_srcdir)/gl/m4/string_h.m4 \
+	$(top_srcdir)/gl/m4/stdbool.m4 $(top_srcdir)/gl/m4/stddef_h.m4 \
+	$(top_srcdir)/gl/m4/stdint.m4 $(top_srcdir)/gl/m4/stdint_h.m4 \
+	$(top_srcdir)/gl/m4/stdio_h.m4 $(top_srcdir)/gl/m4/string_h.m4 \
 	$(top_srcdir)/gl/m4/sys_types_h.m4 \
 	$(top_srcdir)/gl/m4/vasnprintf.m4 \
 	$(top_srcdir)/gl/m4/vfprintf-posix.m4 \
@@ -627,6 +627,7 @@ HAVE_WMEMCMP = @HAVE_WMEMCMP@
 HAVE_WMEMCPY = @HAVE_WMEMCPY@
 HAVE_WMEMMOVE = @HAVE_WMEMMOVE@
 HAVE_WMEMSET = @HAVE_WMEMSET@
+HAVE__BOOL = @HAVE__BOOL@
 HELP2MAN = @HELP2MAN@
 HTML_DIR = @HTML_DIR@
 INCLUDE_NEXT = @INCLUDE_NEXT@
@@ -826,6 +827,7 @@ SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 SIG_ATOMIC_T_SUFFIX = @SIG_ATOMIC_T_SUFFIX@
 SIZE_T_SUFFIX = @SIZE_T_SUFFIX@
+STDBOOL_H = @STDBOOL_H@
 STDDEF_H = @STDDEF_H@
 STDINT_H = @STDINT_H@
 STRIP = @STRIP@

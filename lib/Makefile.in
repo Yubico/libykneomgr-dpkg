@@ -95,7 +95,7 @@ POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
 @BACKEND_GLOBALPLATFORM_TRUE@am__append_1 = backend_globalplatform.c
-@BACKEND_PCSC_TRUE@am__append_2 = backend_pcsc.c des.c des.h
+@BACKEND_PCSC_TRUE@am__append_2 = backend_pcsc.c
 @HAVE_LD_VERSION_SCRIPT_TRUE@am__append_3 = -Wl,--version-script=$(srcdir)/ykneomgr.map
 @HAVE_LD_VERSION_SCRIPT_FALSE@am__append_4 = -export-symbols-regex '^ykneomgr_.*'
 subdir = lib
@@ -138,9 +138,9 @@ am__aclocal_m4_deps = $(top_srcdir)/gl/m4/00gnulib.m4 \
 	$(top_srcdir)/gl/m4/printf-posix-rpl.m4 \
 	$(top_srcdir)/gl/m4/printf.m4 $(top_srcdir)/gl/m4/signbit.m4 \
 	$(top_srcdir)/gl/m4/size_max.m4 $(top_srcdir)/gl/m4/ssize_t.m4 \
-	$(top_srcdir)/gl/m4/stddef_h.m4 $(top_srcdir)/gl/m4/stdint.m4 \
-	$(top_srcdir)/gl/m4/stdint_h.m4 $(top_srcdir)/gl/m4/stdio_h.m4 \
-	$(top_srcdir)/gl/m4/string_h.m4 \
+	$(top_srcdir)/gl/m4/stdbool.m4 $(top_srcdir)/gl/m4/stddef_h.m4 \
+	$(top_srcdir)/gl/m4/stdint.m4 $(top_srcdir)/gl/m4/stdint_h.m4 \
+	$(top_srcdir)/gl/m4/stdio_h.m4 $(top_srcdir)/gl/m4/string_h.m4 \
 	$(top_srcdir)/gl/m4/sys_types_h.m4 \
 	$(top_srcdir)/gl/m4/vasnprintf.m4 \
 	$(top_srcdir)/gl/m4/vfprintf-posix.m4 \
@@ -193,10 +193,10 @@ libykneomgr_la_DEPENDENCIES = $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) ../gl/libgnu.la
 am__libykneomgr_la_SOURCES_DIST = internal.h ykneomgr.pc.in \
 	ykneomgr.map global.c version.c error.c devs.c \
-	backend_globalplatform.c backend_pcsc.c des.c des.h
+	backend_globalplatform.c backend_pcsc.c
 @BACKEND_GLOBALPLATFORM_TRUE@am__objects_1 =  \
 @BACKEND_GLOBALPLATFORM_TRUE@	backend_globalplatform.lo
-@BACKEND_PCSC_TRUE@am__objects_2 = backend_pcsc.lo des.lo
+@BACKEND_PCSC_TRUE@am__objects_2 = backend_pcsc.lo
 am_libykneomgr_la_OBJECTS = global.lo version.lo error.lo devs.lo \
 	$(am__objects_1) $(am__objects_2)
 libykneomgr_la_OBJECTS = $(am_libykneomgr_la_OBJECTS)
@@ -775,6 +775,7 @@ HAVE_WMEMCMP = @HAVE_WMEMCMP@
 HAVE_WMEMCPY = @HAVE_WMEMCPY@
 HAVE_WMEMMOVE = @HAVE_WMEMMOVE@
 HAVE_WMEMSET = @HAVE_WMEMSET@
+HAVE__BOOL = @HAVE__BOOL@
 HELP2MAN = @HELP2MAN@
 HTML_DIR = @HTML_DIR@
 INCLUDE_NEXT = @INCLUDE_NEXT@
@@ -974,6 +975,7 @@ SET_MAKE = @SET_MAKE@
 SHELL = @SHELL@
 SIG_ATOMIC_T_SUFFIX = @SIG_ATOMIC_T_SUFFIX@
 SIZE_T_SUFFIX = @SIZE_T_SUFFIX@
+STDBOOL_H = @STDBOOL_H@
 STDDEF_H = @STDDEF_H@
 STDINT_H = @STDINT_H@
 STRIP = @STRIP@
@@ -1144,7 +1146,6 @@ distclean-compile:
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/backend_globalplatform.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/backend_pcsc.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/des.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/devs.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/error.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/global.Plo@am__quote@
