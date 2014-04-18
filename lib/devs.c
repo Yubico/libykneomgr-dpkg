@@ -88,14 +88,13 @@ ykneomgr_rc
 ykneomgr_connect (ykneomgr_dev * dev, const char *name)
 {
   int rc;
+  uint8_t recvAPDU[258];
+  size_t recvAPDULen = 258;
+  uint8_t buf[] = "\x00\xA4\x04\x00\x08\xA0\x00\x00\x05\x27\x20\x01\x01";
 
   rc = backend_connect (dev, name);
   if (rc != YKNEOMGR_OK)
     return rc;
-
-  uint8_t recvAPDU[258];
-  size_t recvAPDULen = 258;
-  uint8_t buf[] = "\x00\xA4\x04\x00\x08\xA0\x00\x00\x05\x27\x20\x01\x01";
 
   rc = backend_apdu (dev, buf, sizeof buf - 1, recvAPDU, &recvAPDULen);
   if (rc != YKNEOMGR_OK)
@@ -135,17 +134,23 @@ ykneomgr_connect (ykneomgr_dev * dev, const char *name)
   if (rc != YKNEOMGR_OK)
     return rc;
 
-  if (recvAPDULen != 6 && recvAPDU[5] != 0x90 && recvAPDU[6] != 0x00)
+  if (!((recvAPDULen == 2 && recvAPDU[0] == 0x90 && recvAPDU[1] == 0x00)
+	|| (recvAPDULen == 6 && recvAPDU[4] == 0x90 && recvAPDU[5] == 0x00)))
     {
-      size_t i;
-      printf ("apdu %zd: ", recvAPDULen);
-      for (i = 0; i < recvAPDULen; i++)
-	printf ("%02x ", recvAPDU[i]);
-      printf ("\t");
+      if (debug)
+	{
+	  size_t i;
+	  printf ("apdu %zd: ", recvAPDULen);
+	  for (i = 0; i < recvAPDULen; i++)
+	    printf ("%02x ", recvAPDU[i]);
+	  printf ("\n");
+	}
+
       return YKNEOMGR_BACKEND_ERROR;
     }
 
-  dev->serialno = GETU32 (recvAPDU);
+  if (recvAPDULen == 6)
+    dev->serialno = GETU32 (recvAPDU);
 
   if (debug)
     {
@@ -219,6 +224,9 @@ ykneomgr_discover (ykneomgr_dev * dev)
       k++;
       j += strlen (buf + j) + 1;
     }
+
+  if (k == 0)
+    return YKNEOMGR_NO_DEVICE;
 
 done:
   free (buf);
