@@ -1,0 +1,1 @@
+extend-diff-ignore="gtk-doc/tmpl/ykneomgr-types.sgml|gtk-doc/tmpl/ykneomgr-version.sgml|gtk-doc/tmpl/ykneomgr.sgml"
