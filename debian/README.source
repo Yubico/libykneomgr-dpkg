@@ -10,7 +10,7 @@ sudo cowbuilder --update --basepath /var/cache/pbuilder/base-debian-sid.cow
 
 Clone the repository:
 
-git clone git://gitorious.org/libykneomgr-dpkg/libykneomgr-dpkg.git
+git clone git@github.com:Yubico/libykneomgr-dpkg.git
 
 Build the package:
 
