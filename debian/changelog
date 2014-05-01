@@ -6,6 +6,6 @@ libykneomgr (0.1.2-2) unstable; urgency=low
 
 libykneomgr (0.1.2-1) unstable; urgency=low
 
-  * Initial release.
+  * Initial release.  Closes: #745139.
 
  -- Simon Josefsson <simon@josefsson.org>  Fri, 18 Apr 2014 12:42:25 +0200
