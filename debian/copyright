@@ -39,13 +39,3 @@ License: LGPL-3+
  .
  On Debian systems, the full text of the GNU Lesser General Public License
  version 3 can be found in the file `/usr/share/common-licenses/LGPL-3'.
-
-Files: lib/des.*
-Copyright: Brad Conte (brad AT radconte.com)
-License: public-domain
- This code is presented "as is" without any guarantees.
- .
- This code is released into the public domain free of any restrictions.
- The author requests acknowledgement if the code is used, but does not
- require it. This code is provided free of any liability and without
- any quality claims by the author.
