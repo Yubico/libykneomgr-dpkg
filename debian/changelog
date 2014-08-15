@@ -3,6 +3,7 @@ libykneomgr (0.1.4-1) unstable; urgency=low
   * New upstream version.
   * Use --disable-silent-rules.
   * Use extend-diff-ignore to ignore some auto-generated gtk-doc files.
+  * Add new symbols to libykneomgr0.symbols.
 
  -- Simon Josefsson <simon@josefsson.org>  Fri, 15 Aug 2014 14:56:34 +0200
 

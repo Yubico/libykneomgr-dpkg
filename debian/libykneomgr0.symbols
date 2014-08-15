@@ -1,6 +1,7 @@
 libykneomgr.so.0 libykneomgr0 #MINVER#
  YKNEOMGR_0.0.0@YKNEOMGR_0.0.0 0.1.2
  YKNEOMGR_0.1.0@YKNEOMGR_0.1.0 0.1.2
+ YKNEOMGR_0.1.4@YKNEOMGR_0.1.4 0.1.4
  ykneomgr_applet_delete@YKNEOMGR_0.0.0 0.1.2
  ykneomgr_applet_install@YKNEOMGR_0.0.0 0.1.2
  ykneomgr_applet_list@YKNEOMGR_0.0.0 0.1.2
@@ -8,6 +9,7 @@ libykneomgr.so.0 libykneomgr0 #MINVER#
  ykneomgr_check_version@YKNEOMGR_0.0.0 0.1.2
  ykneomgr_connect@YKNEOMGR_0.0.0 0.1.2
  ykneomgr_discover@YKNEOMGR_0.0.0 0.1.2
+ ykneomgr_discover_match@YKNEOMGR_0.1.4 0.1.4
  ykneomgr_done@YKNEOMGR_0.0.0 0.1.2
  ykneomgr_get_mode@YKNEOMGR_0.0.0 0.1.2
  ykneomgr_get_serialno@YKNEOMGR_0.0.0 0.1.2
