@@ -43,6 +43,7 @@ const char *gengetopt_args_info_help[] = {
   "  -i, --applet-install=FILE   Install applets on device from CAP file",
   "  -M, --set-mode=STRING       Set the USB operation mode of the YubiKey NEO.\n                                The possible MODE arguments are:\n                                0 for HID device only,\n                                1 for CCID device only,\n                                2 for HID/CCID composite device.\n                                81 for CCID-only with touch eject.\n                                82 for HID/CCID with touch eject.",
   "  -S, --send-apdu=STRING      Send an arbitrary APDU to the device",
+  "  -r, --reader=STRING         Use only a matching card reader",
   "  -d, --debug                 Print debug information to standard error  \n                                (default=off)",
     0
 };
@@ -81,6 +82,7 @@ void clear_given (struct gengetopt_args_info *args_info)
   args_info->applet_install_given = 0 ;
   args_info->set_mode_given = 0 ;
   args_info->send_apdu_given = 0 ;
+  args_info->reader_given = 0 ;
   args_info->debug_given = 0 ;
 }
 
@@ -101,6 +103,8 @@ void clear_args (struct gengetopt_args_info *args_info)
   args_info->set_mode_orig = NULL;
   args_info->send_apdu_arg = NULL;
   args_info->send_apdu_orig = NULL;
+  args_info->reader_arg = NULL;
+  args_info->reader_orig = NULL;
   args_info->debug_flag = 0;
   
 }
@@ -123,7 +127,8 @@ void init_args_info(struct gengetopt_args_info *args_info)
   args_info->send_apdu_help = gengetopt_args_info_help[10] ;
   args_info->send_apdu_min = 0;
   args_info->send_apdu_max = 0;
-  args_info->debug_help = gengetopt_args_info_help[11] ;
+  args_info->reader_help = gengetopt_args_info_help[11] ;
+  args_info->debug_help = gengetopt_args_info_help[12] ;
   
 }
 
@@ -255,6 +260,8 @@ cmdline_parser_release (struct gengetopt_args_info *args_info)
   free_string_field (&(args_info->set_mode_arg));
   free_string_field (&(args_info->set_mode_orig));
   free_multiple_string_field (args_info->send_apdu_given, &(args_info->send_apdu_arg), &(args_info->send_apdu_orig));
+  free_string_field (&(args_info->reader_arg));
+  free_string_field (&(args_info->reader_orig));
   
   
 
@@ -314,6 +321,8 @@ cmdline_parser_dump(FILE *outfile, struct gengetopt_args_info *args_info)
   if (args_info->set_mode_given)
     write_into_file(outfile, "set-mode", args_info->set_mode_orig, 0);
   write_multiple_into_file(outfile, args_info->send_apdu_given, "send-apdu", args_info->send_apdu_orig, 0);
+  if (args_info->reader_given)
+    write_into_file(outfile, "reader", args_info->reader_orig, 0);
   if (args_info->debug_given)
     write_into_file(outfile, "debug", 0, 0 );
   
@@ -849,11 +858,12 @@ cmdline_parser_internal (
         { "applet-install",	1, NULL, 'i' },
         { "set-mode",	1, NULL, 'M' },
         { "send-apdu",	1, NULL, 'S' },
+        { "reader",	1, NULL, 'r' },
         { "debug",	0, NULL, 'd' },
         { 0,  0, 0, 0 }
       };
 
-      c = getopt_long (argc, argv, "hVmwslaD:i:M:S:d", long_options, &option_index);
+      c = getopt_long (argc, argv, "hVmwslaD:i:M:S:r:d", long_options, &option_index);
 
       if (c == -1) break;	/* Exit from `while (1)' loop.  */
 
@@ -975,6 +985,18 @@ cmdline_parser_internal (
           if (update_multiple_arg_temp(&send_apdu_list, 
               &(local_args_info.send_apdu_given), optarg, 0, 0, ARG_STRING,
               "send-apdu", 'S',
+              additional_error))
+            goto failure;
+        
+          break;
+        case 'r':	/* Use only a matching card reader.  */
+        
+        
+          if (update_arg( (void *)&(args_info->reader_arg), 
+               &(args_info->reader_orig), &(args_info->reader_given),
+              &(local_args_info.reader_given), optarg, 0, 0, ARG_STRING,
+              check_ambiguity, override, 0, 0,
+              "reader", 'r',
               additional_error))
             goto failure;
         

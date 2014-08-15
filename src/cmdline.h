@@ -81,6 +81,9 @@ struct gengetopt_args_info
   unsigned int send_apdu_min; /**< @brief Send an arbitrary APDU to the device's minimum occurreces */
   unsigned int send_apdu_max; /**< @brief Send an arbitrary APDU to the device's maximum occurreces */
   const char *send_apdu_help; /**< @brief Send an arbitrary APDU to the device help description.  */
+  char * reader_arg;	/**< @brief Use only a matching card reader.  */
+  char * reader_orig;	/**< @brief Use only a matching card reader original value given at command line.  */
+  const char *reader_help; /**< @brief Use only a matching card reader help description.  */
   int debug_flag;	/**< @brief Print debug information to standard error (default=off).  */
   const char *debug_help; /**< @brief Print debug information to standard error help description.  */
   
@@ -95,6 +98,7 @@ struct gengetopt_args_info
   unsigned int applet_install_given ;	/**< @brief Whether applet-install was given.  */
   unsigned int set_mode_given ;	/**< @brief Whether set-mode was given.  */
   unsigned int send_apdu_given ;	/**< @brief Whether send-apdu was given.  */
+  unsigned int reader_given ;	/**< @brief Whether reader was given.  */
   unsigned int debug_given ;	/**< @brief Whether debug was given.  */
 
 } ;

@@ -16,6 +16,7 @@
     <keyword type="function" name="ykneomgr_authenticate ()" link="libykneomgr-ykneomgr.html#ykneomgr-authenticate"/>
     <keyword type="function" name="ykneomgr_connect ()" link="libykneomgr-ykneomgr.html#ykneomgr-connect"/>
     <keyword type="function" name="ykneomgr_discover ()" link="libykneomgr-ykneomgr.html#ykneomgr-discover"/>
+    <keyword type="function" name="ykneomgr_discover_match ()" link="libykneomgr-ykneomgr.html#ykneomgr-discover-match" since="0.1.4"/>
     <keyword type="function" name="ykneomgr_done ()" link="libykneomgr-ykneomgr.html#ykneomgr-done"/>
     <keyword type="function" name="ykneomgr_get_mode ()" link="libykneomgr-ykneomgr.html#ykneomgr-get-mode"/>
     <keyword type="function" name="ykneomgr_get_serialno ()" link="libykneomgr-ykneomgr.html#ykneomgr-get-serialno"/>
