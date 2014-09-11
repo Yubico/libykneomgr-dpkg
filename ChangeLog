@@ -1,3 +1,32 @@
+2014-08-26  Klas Lindfors <klas@yubico.com>
+
+	* NEWS: NEWS for 0.1.5
+
+2014-08-26  Klas Lindfors <klas@yubico.com>
+
+	* windows.mk: enable checks for win64 again
+
+2014-08-26  Klas Lindfors <klas@yubico.com>
+
+	* lib/devs.c: fix indent
+
+2014-08-26  Klas Lindfors <klas@yubico.com>
+
+	* NEWS, configure.ac: bump versions after 0.1.4 release
+
+2014-08-26  Klas Lindfors <klas@yubico.com>
+
+	* lib/devs.c: reject the YubiKey if the response was less than 12,
+	not equal to 12 sometimes it's more (serial adds 4 bytes)
+
+2014-08-21  Klas Lindfors <klas@yubico.com>
+
+	* README: change giturl to https
+
+2014-08-15  Simon Josefsson <simon@josefsson.org>
+
+	* windows.mk: Fix win64 builds.
+
 2014-08-15  Simon Josefsson <simon@josefsson.org>
 
 	* NEWS: Version 0.1.4.
