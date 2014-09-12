@@ -1,3 +1,9 @@
+libykneomgr (0.1.5-2) unstable; urgency=low
+
+  * Change maintainer to pkg-auth-maintainers.
+
+ -- Simon Josefsson <simon@josefsson.org>  Fri, 12 Sep 2014 21:29:05 +0200
+
 libykneomgr (0.1.5-1) unstable; urgency=low
 
   * New upstream version.
