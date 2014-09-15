@@ -1,3 +1,129 @@
+2014-09-15  Simon Josefsson <simon@josefsson.org>
+
+	* cfg.mk, gtk-doc/libykneomgr-docs.xml, macosx.mk, windows.mk: Less
+	github references.
+
+2014-09-15  Simon Josefsson <simon@josefsson.org>
+
+	* NEWS: Version 0.1.6.
+
+2014-09-15  Simon Josefsson <simon@josefsson.org>
+
+	* gtk-doc.make, gtk-doc/Makefile.am, gtk-doc/gtk-doc.make: Move
+	gtk-doc.make.
+
+2014-09-15  Simon Josefsson <simon@josefsson.org>
+
+	* BLURB, NEWS, README, gtk-doc/libykneomgr-docs.xml,
+	lib/ykneomgr.pc.in: Rename project.
+
+2014-09-11  Simon Josefsson <simon@josefsson.org>
+
+	* .travis.yml, build-and-test.sh, build-aux/travis: Change travis
+	build script name.
+
+2014-09-11  Klas Lindfors <klas@yubico.com>
+
+	* build-and-test.sh, windows.mk: cheating to fix travis
+
+2014-09-11  Klas Lindfors <klas@yubico.com>
+
+	* .travis.yml: drop gtk-doc-tools dep
+
+2014-09-11  Klas Lindfors <klas@yubico.com>
+
+	* build-and-test.sh, windows.mk: add opt-out for --enable-gtk-doc in
+	windows.mk should make the travis build work
+
+2014-09-10  Klas Lindfors <klas@yubico.com>
+
+	* .travis.yml: install gtk-doc for windows builds
+
+2014-09-10  Klas Lindfors <klas@yubico.com>
+
+	* BLURB: add Travis to BLURB
+
+2014-09-10  Klas Lindfors <klas@yubico.com>
+
+	* windows.mk: try to set CC for windows libzip
+
+2014-09-10  Klas Lindfors <klas@yubico.com>
+
+	* .travis.yml: more fixes for apt-get
+
+2014-09-10  Klas Lindfors <klas@yubico.com>
+
+	* .travis.yml: add libzip-dev for travis
+
+2014-09-10  Klas Lindfors <klas@yubico.com>
+
+	* build-and-test.sh: try to fix build script
+
+2014-09-10  Klas Lindfors <klas@yubico.com>
+
+	* cfg.mk: fixup rsync path
+
+2014-09-10  Klas Lindfors <klas@yubico.com>
+
+	* .travis.yml: fixup travis yml
+
+2014-09-10  Klas Lindfors <klas@yubico.com>
+
+	* .travis.yml, build-and-test.sh: add travis build
+
+2014-09-10  Klas Lindfors <klas@yubico.com>
+
+	* cfg.mk: copy up gtk-doc on release
+
+2014-09-10  Klas Lindfors <klas@yubico.com>
+
+	* lib/devs.c: fix doc comment
+
+2014-09-08  Simon Josefsson <simon@josefsson.org>
+
+	* windows.mk: Use arch-specific and local .wine.
+
+2014-09-08  Simon Josefsson <simon@josefsson.org>
+
+	* build-aux/config.rpath, build-aux/snippet/arg-nonnull.h,
+	build-aux/snippet/c++defs.h, build-aux/snippet/warn-on-use.h,
+	gl/Makefile.am, gl/alloca.in.h, gl/asnprintf.c, gl/errno.in.h,
+	gl/float+.h, gl/float.c, gl/float.in.h, gl/fpucw.h, gl/frexp.c,
+	gl/frexpl.c, gl/fseterr.c, gl/fseterr.h, gl/isnan.c,
+	gl/isnand-nolibm.h, gl/isnand.c, gl/isnanf-nolibm.h, gl/isnanf.c,
+	gl/isnanl-nolibm.h, gl/isnanl.c, gl/itold.c, gl/m4/alloca.m4,
+	gl/m4/asm-underscore.m4, gl/m4/errno_h.m4, gl/m4/exponentd.m4,
+	gl/m4/exponentf.m4, gl/m4/exponentl.m4, gl/m4/extensions.m4,
+	gl/m4/extern-inline.m4, gl/m4/float_h.m4, gl/m4/fpieee.m4,
+	gl/m4/frexp.m4, gl/m4/frexpl.m4, gl/m4/fseterr.m4,
+	gl/m4/gnulib-cache.m4, gl/m4/gnulib-common.m4,
+	gl/m4/gnulib-comp.m4, gl/m4/intmax_t.m4, gl/m4/inttypes_h.m4,
+	gl/m4/isnand.m4, gl/m4/isnanf.m4, gl/m4/isnanl.m4, gl/m4/ldexpl.m4,
+	gl/m4/manywarnings.m4, gl/m4/math_h.m4, gl/m4/memchr.m4,
+	gl/m4/mmap-anon.m4, gl/m4/nocrash.m4, gl/m4/printf-frexp.m4,
+	gl/m4/printf-frexpl.m4, gl/m4/printf-posix-rpl.m4, gl/m4/printf.m4,
+	gl/m4/signbit.m4, gl/m4/size_max.m4, gl/m4/stddef_h.m4,
+	gl/m4/stdint_h.m4, gl/m4/stdio_h.m4, gl/m4/string_h.m4,
+	gl/m4/vasnprintf.m4, gl/m4/vfprintf-posix.m4, gl/m4/warn-on-use.m4,
+	gl/m4/wchar_h.m4, gl/m4/wchar_t.m4, gl/m4/wint_t.m4,
+	gl/m4/xsize.m4, gl/math.c, gl/math.in.h, gl/memchr.c,
+	gl/memchr.valgrind, gl/printf-args.c, gl/printf-args.h,
+	gl/printf-frexp.c, gl/printf-frexp.h, gl/printf-frexpl.c,
+	gl/printf-frexpl.h, gl/printf-parse.c, gl/printf-parse.h,
+	gl/printf.c, gl/signbitd.c, gl/signbitf.c, gl/signbitl.c,
+	gl/size_max.h, gl/stddef.in.h, gl/stdio-impl.h, gl/stdio.in.h,
+	gl/string.in.h, gl/vasnprintf.c, gl/vasnprintf.h, gl/verify.h,
+	gl/vfprintf.c, gl/wchar.in.h, gl/xsize.c, gl/xsize.h, maint.mk: Drop
+	printf gnulib module, it pulls in libgcc_s_ljsj on Windows.
+
+2014-09-04  Simon Josefsson <simon@josefsson.org>
+
+	* windows.mk: Fix windows.
+
+2014-08-26  Klas Lindfors <klas@yubico.com>
+
+	* NEWS, configure.ac: bump versions after release
+
 2014-08-26  Klas Lindfors <klas@yubico.com>
 
 	* NEWS: NEWS for 0.1.5

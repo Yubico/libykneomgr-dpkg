@@ -16,6 +16,7 @@
 PACKAGE=libykneomgr
 ZLIB_VERSION=1.2.8
 LIBZIP_VERSION=0.11.2
+EXTRA ?= --enable-gtk-doc --enable-gtk-doc-pdf
 
 all: usage 32bit 64bit
 
@@ -31,6 +32,8 @@ usage:
 
 doit:
 	rm -rf tmp$(ARCH) && mkdir tmp$(ARCH) && cd tmp$(ARCH) && \
+	export WINEARCH=win$(ARCH) WINEPREFIX=$$PWD/win$(ARCH) && \
+	DISPLAY= wine hostname && \
 	mkdir -p root/licenses && \
 	cp ../zlib-$(ZLIB_VERSION).tar.gz . || \
 	wget "http://zlib.net/zlib-$(ZLIB_VERSION).tar.gz" && \
@@ -42,7 +45,7 @@ doit:
 	wget "http://www.nih.at/libzip/libzip-$(LIBZIP_VERSION).tar.gz" && \
 	tar xfa libzip-$(LIBZIP_VERSION).tar.gz && \
 	cd libzip-$(LIBZIP_VERSION) && \
-	lt_cv_deplibs_check_method=pass_all ./configure --host=$(HOST) --build=x86_64-unknown-linux-gnu --prefix=$(PWD)/tmp$(ARCH)/root --with-zlib=$(PWD)/tmp$(ARCH)/root && \
+	CC=$(HOST)-gcc lt_cv_deplibs_check_method=pass_all ./configure --host=$(HOST) --build=x86_64-unknown-linux-gnu --prefix=$(PWD)/tmp$(ARCH)/root --with-zlib=$(PWD)/tmp$(ARCH)/root && \
 	make install && \
 	rm -f $(PWD)/tmp$(ARCH)/root/bin/zipcmp.exe $(PWD)/tmp$(ARCH)/root/bin/zipmerge.exe $(PWD)/tmp$(ARCH)/root/bin/ziptorrent.exe && \
 	rm -rf $(PWD)/tmp$(ARCH)/root/share/ && \
@@ -51,7 +54,7 @@ doit:
 	cp ../$(PACKAGE)-$(VERSION).tar.gz . && \
 	tar xfa $(PACKAGE)-$(VERSION).tar.gz && \
 	cd $(PACKAGE)-$(VERSION)/ && \
-	lt_cv_deplibs_check_method=pass_all PKG_CONFIG_PATH=$(PWD)/tmp$(ARCH)/root/lib/pkgconfig ./configure --host=$(HOST) --build=x86_64-unknown-linux-gnu --prefix=$(PWD)/tmp$(ARCH)/root --enable-gtk-doc --enable-gtk-doc-pdf && \
+	CC="$(HOST)-gcc -static-libgcc" lt_cv_deplibs_check_method=pass_all PKG_CONFIG_PATH=$(PWD)/tmp$(ARCH)/root/lib/pkgconfig ./configure --host=$(HOST) --build=x86_64-unknown-linux-gnu --prefix=$(PWD)/tmp$(ARCH)/root $(EXTRA) && \
 	make install $(CHECK) && \
 	rm -rf $(PWD)/tmp$(ARCH)/root/lib/pkgconfig/ && \
 	mkdir $(PWD)/tmp$(ARCH)/root/doc && \
@@ -59,27 +62,28 @@ doit:
 	cp COPYING $(PWD)/tmp$(ARCH)/root/licenses/$(PACKAGE).txt && \
 	cd .. && \
 	cd root && \
+	! test -d share/gtk-doc/html/$(PACKAGE) || \
 	mv share/gtk-doc/html/$(PACKAGE)/* $(PWD)/tmp$(ARCH)/root/doc/ && \
 	rm -rf share/gtk-doc && \
 	rm -f ../../$(PACKAGE)-$(VERSION)-win$(ARCH).zip && \
 	zip -r ../../$(PACKAGE)-$(VERSION)-win$(ARCH).zip *
 
 32bit:
-	$(MAKE) -f windows.mk doit ARCH=32 HOST=i686-w64-mingw32 CHECK=check
+	$(MAKE) -f windows.mk doit ARCH=32 HOST=i686-w64-mingw32 CHECK=check EXTRA="$(EXTRA)"
 
 64bit:
-	$(MAKE) -f windows.mk doit ARCH=64 HOST=x86_64-w64-mingw32 CHECK=check
+	$(MAKE) -f windows.mk doit ARCH=64 HOST=x86_64-w64-mingw32 CHECK=check EXTRA="$(EXTRA)"
 
 upload:
-	@if test ! -d "$(YUBICO_GITHUB_REPO)"; then \
-		echo "yubico.github.com repo not found!"; \
-		echo "Make sure that YUBICO_GITHUB_REPO is set"; \
+	@if test ! -d "$(YUBICO_WWW_REPO)"; then \
+		echo "www repo not found!"; \
+		echo "Make sure that YUBICO_WWW_REPO is set"; \
 		exit 1; \
 	fi
 	gpg --detach-sign --default-key $(PGPKEYID) \
 		$(PACKAGE)-$(VERSION)-win$(BITS).zip
 	gpg --verify $(PACKAGE)-$(VERSION)-win$(BITS).zip.sig
-	$(YUBICO_GITHUB_REPO)/publish $(PACKAGE) $(VERSION) $(PACKAGE)-$(VERSION)-win${BITS}.zip*
+	$(YUBICO_WWW_REPO)/publish $(PACKAGE) $(VERSION) $(PACKAGE)-$(VERSION)-win${BITS}.zip*
 
 upload-32bit:
 	$(MAKE) -f windows.mk upload BITS=32
