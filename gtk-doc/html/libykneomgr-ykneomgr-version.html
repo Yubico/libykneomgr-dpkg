@@ -2,21 +2,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Yubico YubiKey NEO Manager C Library: ykneomgr-version</title>
+<title>Yubico YubiKey NEO CCID Manager C Library: ykneomgr-version</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
-<link rel="home" href="index.html" title="Yubico YubiKey NEO Manager C Library">
-<link rel="up" href="intro.html" title="Yubico YubiKey NEO Manager C Library">
+<link rel="home" href="index.html" title="Yubico YubiKey NEO CCID Manager C Library">
+<link rel="up" href="intro.html" title="Yubico YubiKey NEO CCID Manager C Library">
 <link rel="prev" href="libykneomgr-ykneomgr-types.html" title="ykneomgr-types">
 <link rel="next" href="api-index-full.html" title="API Index">
-<meta name="generator" content="GTK-Doc V1.20 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.21 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
-<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="10"><tr valign="middle">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
 <td width="100%" align="left" class="shortcuts">
-<a href="#" class="shortcut">Top</a><span id="nav_description"> <span class="dim">|</span> 
-                  <a href="#libykneomgr-ykneomgr-version.description" class="shortcut">Description</a></span><span id="nav_hierarchy"> <span class="dim">|</span> 
-                  <a href="#libykneomgr-ykneomgr-version.object-hierarchy" class="shortcut">Object Hierarchy</a></span>
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#libykneomgr-ykneomgr-version.description" class="shortcut">Description</a></span>
 </td>
 <td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
 <td><a accesskey="u" href="intro.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
@@ -80,11 +79,6 @@
 </table></div>
 </div>
 <div class="refsect1">
-<a name="libykneomgr-ykneomgr-version.object-hierarchy"></a><h2>Object Hierarchy</h2>
-<pre class="screen">
-</pre>
-</div>
-<div class="refsect1">
 <a name="libykneomgr-ykneomgr-version.description"></a><h2>Description</h2>
 <p>
 </p>
@@ -102,7 +96,7 @@ done, but the version string is simply returned.</p>
 <p>See <a class="link" href="libykneomgr-ykneomgr-version.html#YKNEOMGR-VERSION-STRING:CAPS" title="YKNEOMGR_VERSION_STRING"><code class="literal">YKNEOMGR_VERSION_STRING</code></a> for a suitable <em class="parameter"><code>req_version</code></em>
  string.</p>
 <div class="refsect3">
-<a name="id-1.2.6.7.2.6"></a><h4>Parameters</h4>
+<a name="id-1.2.6.6.2.6"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -117,7 +111,7 @@ done, but the version string is simply returned.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.6.7.2.7"></a><h4>Returns</h4>
+<a name="id-1.2.6.6.2.7"></a><h4>Returns</h4>
 <p> Version string of run-time library, or NULL if the
 run-time library does not meet the required version number.</p>
 <p></p>
@@ -128,7 +122,7 @@ run-time library does not meet the required version number.</p>
 <a name="libykneomgr-ykneomgr-version.other_details"></a><h2>Types and Values</h2>
 <div class="refsect2">
 <a name="YKNEOMGR-VERSION-STRING:CAPS"></a><h3>YKNEOMGR_VERSION_STRING</h3>
-<pre class="programlisting">#define YKNEOMGR_VERSION_STRING "0.1.4"
+<pre class="programlisting">#define YKNEOMGR_VERSION_STRING "0.1.6"
 </pre>
 <p>Pre-processor symbol with a string that describe the header file
 version number.  Used together with <a class="link" href="libykneomgr-ykneomgr-version.html#ykneomgr-check-version" title="ykneomgr_check_version ()"><code class="function">ykneomgr_check_version()</code></a> to verify
@@ -137,7 +131,7 @@ header file and run-time library consistency.</p>
 <hr>
 <div class="refsect2">
 <a name="YKNEOMGR-VERSION-NUMBER:CAPS"></a><h3>YKNEOMGR_VERSION_NUMBER</h3>
-<pre class="programlisting">#define YKNEOMGR_VERSION_NUMBER 0x000104
+<pre class="programlisting">#define YKNEOMGR_VERSION_NUMBER 0x000106
 </pre>
 <p>Pre-processor symbol with a hexadecimal value describing the header
 file version number.  For example, when the header version is 1.2.3
@@ -165,7 +159,7 @@ header version is 1.2.3 this symbol will be 2.</p>
 <hr>
 <div class="refsect2">
 <a name="YKNEOMGR-VERSION-PATCH:CAPS"></a><h3>YKNEOMGR_VERSION_PATCH</h3>
-<pre class="programlisting">#define YKNEOMGR_VERSION_PATCH 4
+<pre class="programlisting">#define YKNEOMGR_VERSION_PATCH 6
 </pre>
 <p>Pre-processor symbol with a decimal value that describe the patch
 level of the header file version number.  For example, when the
@@ -175,6 +169,6 @@ header version is 1.2.3 this symbol will be 3.</p>
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.20</div>
+          Generated by GTK-Doc V1.21</div>
 </body>
 </html>

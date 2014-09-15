@@ -9,10 +9,12 @@ ykneomgr
 
 </para>
 
+
 <!-- ##### SECTION See_Also ##### -->
 <para>
 
 </para>
+
 
 <!-- ##### SECTION Stability_Level ##### -->
 
@@ -99,6 +101,16 @@ ykneomgr
 </para>
 
 @dev: 
+@Returns: 
+
+
+<!-- ##### FUNCTION ykneomgr_discover_match ##### -->
+<para>
+
+</para>
+
+@dev: 
+@match: 
 @Returns: 
 
 
@@ -196,6 +208,19 @@ ykneomgr
 
 @dev: 
 @capfile: 
+@Returns: 
+
+
+<!-- ##### FUNCTION ykneomgr_send_apdu ##### -->
+<para>
+
+</para>
+
+@dev: 
+@send: 
+@sendlen: 
+@recv: 
+@recvlen: 
 @Returns: 
 
 
