@@ -1,3 +1,3 @@
 version=3
 opts=pgpsigurlmangle=s/$/.sig/ \
-  https://developers.yubico.com/libykneomgr/releases.html releases/libykneomgr-(.*)\.tar\.gz
+  https://developers.yubico.com/libykneomgr/Releases/ libykneomgr-(.*)\.tar\.gz
