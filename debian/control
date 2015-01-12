@@ -41,7 +41,7 @@ Description: Yubico YubiKey NEO CCID Manager library development files
 
 Package: ykneomgr
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, pcscd
 Description: Yubico YubiKey NEO CCID Manager tool
  This is a C library to interact with the CCID-part of the YubiKey
  NEO.  There is a command line tool "ykneomgr" for interactive use.
