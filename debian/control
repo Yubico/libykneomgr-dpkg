@@ -3,7 +3,7 @@ Section: utils
 Priority: extra
 Maintainer: Debian Authentication Maintainers <pkg-auth-maintainers@lists.alioth.debian.org>
 Uploaders: Simon Josefsson <simon@josefsson.org>
-Build-Depends: debhelper (>= 9), autotools-dev, dh-autoreconf,
+Build-Depends: debhelper (>= 9), dh-autoreconf,
 	       libpcsclite-dev, libzip-dev, help2man, pkg-config,
 	       gtk-doc-tools
 Standards-Version: 3.9.5

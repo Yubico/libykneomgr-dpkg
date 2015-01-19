@@ -1,6 +1,13 @@
+libykneomgr (0.1.6-3) unstable; urgency=low
+
+  * Don't use autotools-dev since we use dh-autoreconf.
+
+ -- Simon Josefsson <simon@josefsson.org>  Mon, 19 Jan 2015 22:11:07 +0100
+
 libykneomgr (0.1.6-2) unstable; urgency=low
 
   * ykneomgr: Depend on pcscd.  Closes: #774678.
+  * Fix watch file.
 
  -- Simon Josefsson <simon@josefsson.org>  Tue, 13 Jan 2015 00:24:31 +0100
 
