@@ -1,6 +1,7 @@
 libykneomgr (0.1.7-1) unstable; urgency=low
 
   * New upstream version.
+  * Upgrade to Standards-Version from 3.9.5 to 3.9.6.
 
  -- Simon Josefsson <simon@josefsson.org>  Wed, 15 Apr 2015 15:09:01 +0200
 
