@@ -1,6 +1,7 @@
 <ONLINE href="https://developers.yubico.com/libykneomgr/">
 <ANCHOR id="libykneomgr-ykneomgr" href="libykneomgr/libykneomgr-ykneomgr.html">
 <ANCHOR id="libykneomgr-ykneomgr.functions" href="libykneomgr/libykneomgr-ykneomgr.html#libykneomgr-ykneomgr.functions">
+<ANCHOR id="libykneomgr-ykneomgr.object-hierarchy" href="libykneomgr/libykneomgr-ykneomgr.html#libykneomgr-ykneomgr.object-hierarchy">
 <ANCHOR id="libykneomgr-ykneomgr.description" href="libykneomgr/libykneomgr-ykneomgr.html#libykneomgr-ykneomgr.description">
 <ANCHOR id="libykneomgr-ykneomgr.functions_details" href="libykneomgr/libykneomgr-ykneomgr.html#libykneomgr-ykneomgr.functions_details">
 <ANCHOR id="ykneomgr-global-init" href="libykneomgr/libykneomgr-ykneomgr.html#ykneomgr-global-init">
@@ -27,6 +28,7 @@
 <ANCHOR id="libykneomgr-ykneomgr.other_details" href="libykneomgr/libykneomgr-ykneomgr.html#libykneomgr-ykneomgr.other_details">
 <ANCHOR id="libykneomgr-ykneomgr-types" href="libykneomgr/libykneomgr-ykneomgr-types.html">
 <ANCHOR id="libykneomgr-ykneomgr-types.other" href="libykneomgr/libykneomgr-ykneomgr-types.html#libykneomgr-ykneomgr-types.other">
+<ANCHOR id="libykneomgr-ykneomgr-types.object-hierarchy" href="libykneomgr/libykneomgr-ykneomgr-types.html#libykneomgr-ykneomgr-types.object-hierarchy">
 <ANCHOR id="libykneomgr-ykneomgr-types.description" href="libykneomgr/libykneomgr-ykneomgr-types.html#libykneomgr-ykneomgr-types.description">
 <ANCHOR id="libykneomgr-ykneomgr-types.functions_details" href="libykneomgr/libykneomgr-ykneomgr-types.html#libykneomgr-ykneomgr-types.functions_details">
 <ANCHOR id="libykneomgr-ykneomgr-types.other_details" href="libykneomgr/libykneomgr-ykneomgr-types.html#libykneomgr-ykneomgr-types.other_details">
@@ -36,6 +38,7 @@
 <ANCHOR id="libykneomgr-ykneomgr-version" href="libykneomgr/libykneomgr-ykneomgr-version.html">
 <ANCHOR id="libykneomgr-ykneomgr-version.functions" href="libykneomgr/libykneomgr-ykneomgr-version.html#libykneomgr-ykneomgr-version.functions">
 <ANCHOR id="libykneomgr-ykneomgr-version.other" href="libykneomgr/libykneomgr-ykneomgr-version.html#libykneomgr-ykneomgr-version.other">
+<ANCHOR id="libykneomgr-ykneomgr-version.object-hierarchy" href="libykneomgr/libykneomgr-ykneomgr-version.html#libykneomgr-ykneomgr-version.object-hierarchy">
 <ANCHOR id="libykneomgr-ykneomgr-version.description" href="libykneomgr/libykneomgr-ykneomgr-version.html#libykneomgr-ykneomgr-version.description">
 <ANCHOR id="libykneomgr-ykneomgr-version.functions_details" href="libykneomgr/libykneomgr-ykneomgr-version.html#libykneomgr-ykneomgr-version.functions_details">
 <ANCHOR id="ykneomgr-check-version" href="libykneomgr/libykneomgr-ykneomgr-version.html#ykneomgr-check-version">

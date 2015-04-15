@@ -1,3 +1,23 @@
+2015-04-09  Klas Lindfors <klas@yubico.com>
+
+	* NEWS: NEWS for 0.1.7
+
+2015-04-09  Klas Lindfors <klas@yubico.com>
+
+	* lib/devs.c: check programming sequence when modswitching break out parsing of status into an internal function
+
+2014-10-08  Simon Josefsson <simon@josefsson.org>
+
+	* README: Doc fix.
+
+2014-09-17  Simon Josefsson <simon@josefsson.org>
+
+	* README: Layout.
+
+2014-09-16  Klas Lindfors <klas@yubico.com>
+
+	* NEWS, configure.ac: bump versions
+
 2014-09-15  Simon Josefsson <simon@josefsson.org>
 
 	* cfg.mk, gtk-doc/libykneomgr-docs.xml, macosx.mk, windows.mk: Less
@@ -9,7 +29,7 @@
 
 2014-09-15  Simon Josefsson <simon@josefsson.org>
 
-	* gtk-doc.make, gtk-doc/Makefile.am, gtk-doc/gtk-doc.make: Move
+	* gtk-doc/Makefile.am, gtk-doc.make => gtk-doc/gtk-doc.make: Move
 	gtk-doc.make.
 
 2014-09-15  Simon Josefsson <simon@josefsson.org>
@@ -19,7 +39,7 @@
 
 2014-09-11  Simon Josefsson <simon@josefsson.org>
 
-	* .travis.yml, build-and-test.sh, build-aux/travis: Change travis
+	* .travis.yml, build-and-test.sh => build-aux/travis: Change travis
 	build script name.
 
 2014-09-11  Klas Lindfors <klas@yubico.com>
