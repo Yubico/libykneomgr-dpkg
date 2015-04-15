@@ -1,6 +1,7 @@
 libykneomgr (0.1.7-2) unstable; urgency=low
 
   * Attempt to fix dep5-copyright-license-name-not-unique.
+  * Move pcscd to a Recommends on the library.
 
  -- Simon Josefsson <simon@josefsson.org>  Wed, 15 Apr 2015 18:53:07 +0200
 
