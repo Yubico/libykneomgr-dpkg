@@ -43,7 +43,7 @@ const char *gengetopt_args_info_help[] = {
   "  -a, --applet-list           List applets on device  (default=off)",
   "  -D, --applet-delete=STRING  Delete given applet AID from device",
   "  -i, --applet-install=FILE   Install applets on device from CAP file",
-  "  -M, --set-mode=STRING       Set the USB operation mode of the YubiKey NEO.\n                                The possible MODE arguments are:\n                                0 for HID device only,\n                                1 for CCID device only,\n                                2 for HID/CCID composite device.\n                                81 for CCID-only with touch eject.\n                                82 for HID/CCID with touch eject.",
+  "  -M, --set-mode=STRING       Set the USB operation mode of the YubiKey NEO.\n                                The possible MODE arguments are:\n                                0 for HID device only,\n                                1 for CCID device only,\n                                81 for CCID device with touch eject,\n                                2 for HID/CCID composite device,\n                                3 for U2F device only,\n                                4 for OTP/U2F composite device,\n                                5 for U2F/CCID composite device,\n                                6 for OTP/U2F/CCID composite device.",
   "  -S, --send-apdu=STRING      Send an arbitrary APDU to the device",
   "  -r, --reader=STRING         Use only a matching card reader",
   "  -d, --debug                 Print debug information to standard error\n                                (default=off)",
@@ -1051,9 +1051,12 @@ cmdline_parser_internal (int argc, char **argv,
 				   The possible MODE arguments are:
 				   0 for HID device only,
 				   1 for CCID device only,
-				   2 for HID/CCID composite device.
-				   81 for CCID-only with touch eject.
-				   82 for HID/CCID with touch eject..  */
+				   81 for CCID device with touch eject,
+				   2 for HID/CCID composite device,
+				   3 for U2F device only,
+				   4 for OTP/U2F composite device,
+				   5 for U2F/CCID composite device,
+				   6 for OTP/U2F/CCID composite device..  */
 
 
 	  if (update_arg ((void *) &(args_info->set_mode_arg),

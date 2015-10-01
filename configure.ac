@@ -13,14 +13,14 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-AC_INIT([libykneomgr], [0.1.7], [yubico-devel@googlegroups.com])
+AC_INIT([libykneomgr], [0.1.8], [yubico-devel@googlegroups.com])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 
 # http://www.gnu.org/s/libtool/manual/html_node/Updating-version-info.html
 AC_SUBST([LT_CURRENT], 1)
-AC_SUBST([LT_REVISION], 7)
+AC_SUBST([LT_REVISION], 8)
 AC_SUBST([LT_AGE], 1)
 
 AM_INIT_AUTOMAKE([-Wall -Werror])
@@ -64,13 +64,16 @@ fi
 
 if test "x$with_backend" = xcheck; then
   AC_CHECK_HEADERS([PCSC/winscard.h])
+  AC_CHECK_HEADERS([winscard.h])
   AC_MSG_CHECKING([between Mac/Windows winscard])
   if test "x$ac_cv_header_PCSC_winscard_h" = xyes; then
     with_backend=macscard
     AC_MSG_RESULT([Mac])
-  else
+  elif test "x$ac_cv_header_winscard_h" = xyes; then
     with_backend=winscard
     AC_MSG_RESULT([Windows])
+  else
+    AC_MSG_RESULT([no])
   fi
 fi
 
@@ -104,7 +107,7 @@ elif test "x$with_backend" = xpcsc || test "x$with_backend" = xwinscard \
   || test "x$with_backend" = xmacscard; then
   AC_DEFINE([BACKEND_PCSC], 1, [Define to 1 if you the PCSC backend.])
 else
-  AC_MSG_ERROR([cannot find PCSC/winscard library/headers])
+  AC_MSG_ERROR([cannot find PCSC library])
 fi
 
 AM_CONDITIONAL([BACKEND_GLOBALPLATFORM], test x$with_backend = xglobalplatform)
