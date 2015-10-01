@@ -1,3 +1,36 @@
+2015-10-01  Klas Lindfors <klas@yubico.com>
+
+	* NEWS: NEWS for 0.1.8
+
+2015-09-16  Klas Lindfors <klas@yubico.com>
+
+	* configure.ac: improve error when no pcsc library is found previously auto-selected windows and got weird error for that
+
+2015-09-01  Klas Lindfors <klas@yubico.com>
+
+	* lib/devs.c: don't treat applet selection error as a critical error this allows the library to still be used even if the yubikey applet
+	isn't present
+
+2015-08-10  Klas Lindfors <klas@yubico.com>
+
+	* src/cmdline.ggo: add documentation for mode arguments
+
+2015-04-28  Dain Nilsson <dain@yubico.com>
+
+	* README.adoc: Added README.adoc symlink for Github.
+
+2015-04-28  Dain Nilsson <dainzor@gmail.com>
+
+	* README: Added OpenPGP security advisory notice.
+
+2015-04-09  Klas Lindfors <klas@yubico.com>
+
+	* macosx.mk: use curl for download on mac
+
+2015-04-09  Klas Lindfors <klas@yubico.com>
+
+	* NEWS, configure.ac: bump versions
+
 2015-04-09  Klas Lindfors <klas@yubico.com>
 
 	* NEWS: NEWS for 0.1.7

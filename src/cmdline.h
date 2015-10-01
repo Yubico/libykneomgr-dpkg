@@ -71,24 +71,33 @@ extern "C"
   The possible MODE arguments are:
   0 for HID device only,
   1 for CCID device only,
-  2 for HID/CCID composite device.
-  81 for CCID-only with touch eject.
-  82 for HID/CCID with touch eject..  */
+  81 for CCID device with touch eject,
+  2 for HID/CCID composite device,
+  3 for U2F device only,
+  4 for OTP/U2F composite device,
+  5 for U2F/CCID composite device,
+  6 for OTP/U2F/CCID composite device..  */
     char *set_mode_orig;/**< @brief Set the USB operation mode of the YubiKey NEO.
   The possible MODE arguments are:
   0 for HID device only,
   1 for CCID device only,
-  2 for HID/CCID composite device.
-  81 for CCID-only with touch eject.
-  82 for HID/CCID with touch eject. original value given at command line.  */
+  81 for CCID device with touch eject,
+  2 for HID/CCID composite device,
+  3 for U2F device only,
+  4 for OTP/U2F composite device,
+  5 for U2F/CCID composite device,
+  6 for OTP/U2F/CCID composite device. original value given at command line.  */
     const char *set_mode_help;
 			     /**< @brief Set the USB operation mode of the YubiKey NEO.
   The possible MODE arguments are:
   0 for HID device only,
   1 for CCID device only,
-  2 for HID/CCID composite device.
-  81 for CCID-only with touch eject.
-  82 for HID/CCID with touch eject. help description.  */
+  81 for CCID device with touch eject,
+  2 for HID/CCID composite device,
+  3 for U2F device only,
+  4 for OTP/U2F composite device,
+  5 for U2F/CCID composite device,
+  6 for OTP/U2F/CCID composite device. help description.  */
     char **send_apdu_arg;	/**< @brief Send an arbitrary APDU to the device.  */
     char **send_apdu_orig;	/**< @brief Send an arbitrary APDU to the device original value given at command line.  */
     unsigned int send_apdu_min;
