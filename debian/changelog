@@ -1,6 +1,7 @@
 libykneomgr (0.1.8-1) unstable; urgency=low
 
   * New upstream version.
+  * Add debian/gbp.conf.
 
  -- Simon Josefsson <simon@josefsson.org>  Fri, 02 Oct 2015 20:16:21 +0200
 
