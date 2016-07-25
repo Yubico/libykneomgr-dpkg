@@ -6,9 +6,9 @@ Uploaders: Simon Josefsson <simon@josefsson.org>
 Build-Depends: debhelper (>= 9), dh-autoreconf,
 	       libpcsclite-dev, libzip-dev, help2man, pkg-config,
 	       gtk-doc-tools
-Standards-Version: 3.9.6
+Standards-Version: 3.9.8
 Homepage: https://developers.yubico.com/libykneomgr/
-Vcs-Git: git://github.com/Yubico/libykneomgr-dpkg.git
+Vcs-Git: https://github.com/Yubico/libykneomgr-dpkg.git
 Vcs-Browser: https://github.com/Yubico/libykneomgr-dpkg
 
 Package: libykneomgr0
